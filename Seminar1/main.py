@@ -57,9 +57,9 @@
 # print(f"Максимум {max}, минимум {min}")
 
 
-numbers = [5,-4,8,9,-9,4,7,0,1,-5]
-for i in numbers:
-    print(i)
+# numbers = [5,-4,8,9,-9,4,7,0,1,-5]
+# for i in numbers:
+#     print(i)
     
     
 
@@ -70,7 +70,7 @@ def CheckEvenOrOdd(value):
         return ("нечетное")
 
 
-def Task2_1(number):
+def Task0_1(number):
     count = 0
     for i in range(1, number+1):
         if number % i == 0:
@@ -79,16 +79,16 @@ def Task2_1(number):
                 print(f"{i} - четное")
             else:
                 print(f"{i} - нечетное")
-    print(f"Количество делителей: {count} - by Task2_1")
+    print(f"Количество делителей: {count} - by Task0_1")
 
 
-def Task2_2(number):
+def Task0_2(number):
     count = 0
     for i in range(1, number+1):
         if number % i == 0:
             count += 1
             print(f"{i} - {CheckEvenOrOdd(i)}")
-    print(f"Количество делителей: {count} - by Task2_2")
+    print(f"Количество делителей: {count} - by Task0_2")
 
 # number = int(input("Введите число: "))
 # print()
@@ -105,18 +105,65 @@ def FindBoolValue(a, b):
         return 0
 
 
-print('X Y R')
-for x in range(2):
-    for y in range(2):
-        print(x, end=' ')
-        print(y, end=' ')
-        print(FindBoolValue(x, y))
+#Задача 1. Выведите таблицу истинности для выражения ¬ X ∨ Y.
+def Task1():
+    print('X Y R')
+    for x in range(2):
+        for y in range(2):
+            print(x, end=' ')
+            print(y, end=' ')
+            print(FindBoolValue(x, y))
 
 # x = int(input("Введите X: "))
 # y = int(input("Введите Y: "))
 # FindBoolValue(x,y)
 
+def Task1_1():
+    print()
+    print('X | Y | ¬ X ∨ Y')
+    for x in range(2):
+        for y in range(2):
+            print(f"{x} | {y} |    {int(not x or y)}")
+
+
+#Задача 2. Напишите программу, в которой пользователь будет задавать две строки, а программа - определять количество вхождений одной строки в другую.
+
+def Task2(a, b):
+    count = 0
+    for i in range(len(b)-len(a)+1):
+        if a == b[i:i+len(a)]:
+            count+= 1
+    print (count)
+
+# str1= input("Введите строку 1: ")
+# str2= input("Введите строку 2: ")
+#Task2(str1, str2)
+
+def Task2_1():
+    string = input("Введите строку: ")
+    phrase = input("Введите фразу: ")
+    count = 0
+    for i in range(len(phrase)-len(string)+1):
+        if string == phrase[i:i+len(string)]:
+            count += 1
+    print(count)
+
+
+#Вывод по элементам
+phrase = input("Введите фразу: ")
+for el in phrase:
+    print(el, end='')
+
 print()
-for x in range(2):
-    for y in range(2):
-        print(f"{x} {y} {int(not x or y)}")
+#Вывод элементов с индексами
+for i in range(len(phrase)):
+    print(phrase[i], end='')
+
+
+
+#Вывод дробного числа с указанием количества знаков после запятой без округления
+def float():
+    fl = 2.715415864
+    print(f"{fl:.6f}")
+
+
