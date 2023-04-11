@@ -16,6 +16,28 @@
 # print(r+"5")
 # print(type(r))
 
+# n = int(input())
+# flag = True
+# i = 2
+
+# while flag:
+#     if n % i == 0:
+#         flag = False
+#         print(i)
+#     elif i > n//2:
+#         print(n)
+#         flag = False
+#     i += 1
+
+
+# for i in range(5):
+#     line=""
+#     for j in range(5):
+#         line+="*"
+#     print(line)
+
+# text = '123456789'
+# print(text[0::3])
 # n = 1
 # print(n)
 # print(type(n))
@@ -95,11 +117,3 @@
 # a = 5.542434345
 # b = 4.55322245
 # print(round(a*b, 4))
-
-text = '0123456789'
-print(text[:5])
-
-
-
-
-
