@@ -59,4 +59,6 @@
 
 numbers = [5,-4,8,9,-9,4,7,0,1,-5]
 for i in numbers:
-    print(i)
+    print(i) 
+
+    
