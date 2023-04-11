@@ -15,8 +15,6 @@
 # print(r+"5")
 # print(type(r))
 
-
-
 # n = int(input())
 # flag = True
 # i = 2
@@ -31,14 +29,14 @@
 #     i += 1
 
 
-# for i in range(5):  
-#     line="" 
+# for i in range(5):
+#     line=""
 #     for j in range(5):
 #         line+="*"
 #     print(line)
-    
-text = '123456789'
-print(text[0::3])
+
+# text = '123456789'
+# print(text[0::3])
 # n = 1
 # print(n)
 # print(type(n))
@@ -71,7 +69,6 @@ print(text[0::3])
 # print ("{} - {} - {}".format(a,b,c))
 
 
-
 # print("Введите число a:")
 # a = input()
 # b = input("Введите число b: ")
@@ -93,20 +90,70 @@ print(text[0::3])
 # print(type(d))
 
 
-
 # print("Введите число a:")
 # a = int(input())
 # b = int(input("Введите число b: "))
 # print(a, "+", b, "=", a+b)
 
 
-a = 5.542434345
-b = 4.55322245
-print(round(a*b, 4))
+# a = 5.542434345
+# b = 4.55322245
+# print(round(a*b, 4))
+
+def CheckEvenOrOdd(value):
+    if value % 2 == 0:
+        return ("четное")
+    else:
+        return ("нечетное")
 
 
+def Task2_1(number):
+    count = 0
+    for i in range(1, number+1):
+        if number % i == 0:
+            count += 1
+            if i % 2 == 0:
+                print(f"{i} - четное")
+            else:
+                print(f"{i} - нечетное")
+    print(f"Количество делителей: {count} - by Task2_1")
 
 
+def Task2_2(number):
+    count = 0
+    for i in range(1, number+1):
+        if number % i == 0:
+            count += 1
+            print(f"{i} - {CheckEvenOrOdd(i)}")
+    print(f"Количество делителей: {count} - by Task2_2")
+
+# number = int(input("Введите число: "))
+# print()
+# Task2_1(number)
+# print()
+# Task2_2(number)
 
 
+def FindBoolValue(a, b):
+    result = not a or b
+    if result == True:
+        return 1
+    else:
+        return 0
 
+
+print('X Y R')
+for x in range(2):
+    for y in range(2):
+        print(x, end=' ')
+        print(y, end=' ')
+        print(FindBoolValue(x, y))
+
+# x = int(input("Введите X: "))
+# y = int(input("Введите Y: "))
+# FindBoolValue(x,y)
+
+print()
+for x in range(2):
+    for y in range(2):
+        print(f"{x} {y} {int(not x or y)}")
