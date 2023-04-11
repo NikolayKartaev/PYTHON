@@ -4,8 +4,9 @@
 # print(f"{a} + {b} + {c} = {a+b+c}")
 # print("{} + {} + {} = {}".format(a, b, c, a+b+c))
 
-# d = input()
-# f = input("Введите число")
+# d = int(input())
+# f = int(input("Введите число: "))
+# print("Сумма чисел {} и {} равна {}".format(d,f, d+f))
 
 # r = 15
 # print(r+5)
@@ -68,14 +69,31 @@
 # print (f"{a} - {b} - {c}")
 # print ("{} - {} - {}".format(a,b,c))
 
+# n = int(input("Введите число: "))
+# flag = True
+# i = 2
+# while flag:
+#     if n % i == 0:
+#         flag = False
+#         print(f"Наименьший делитель числа {n} равен {i}")
+#     elif i > n//2:
+#         print(f"Наименьший делитель числа {n} равен {n}")
+#         flag = False
+#     i += 1
 
+
+# for i in range(5):  
+#     line="" 
+#     for j in range(5):
+#         line+="*"
+#     print(line)
+    
 # print("Введите число a:")
-# a = input()
-# b = input("Введите число b: ")
+# a = int(input())
+# b = int(input("Введите число b: "))
 # c = 5.2
 # d = 5
-# print(f"a = {a}")
-# print(type(a))
+# print(f"a={a} + b={b} + c={c} + d={d} = {a+b+c+d}")
 
 # print(f"b = {b}")
 # print(type(b))
@@ -89,71 +107,13 @@
 # print(f"d = {d}")
 # print(type(d))
 
-
 # print("Введите число a:")
 # a = int(input())
 # b = int(input("Введите число b: "))
 # print(a, "+", b, "=", a+b)
+# print(f"{a} + {b} = {a+b}")
 
 
 # a = 5.542434345
 # b = 4.55322245
 # print(round(a*b, 4))
-
-def CheckEvenOrOdd(value):
-    if value % 2 == 0:
-        return ("четное")
-    else:
-        return ("нечетное")
-
-
-def Task2_1(number):
-    count = 0
-    for i in range(1, number+1):
-        if number % i == 0:
-            count += 1
-            if i % 2 == 0:
-                print(f"{i} - четное")
-            else:
-                print(f"{i} - нечетное")
-    print(f"Количество делителей: {count} - by Task2_1")
-
-
-def Task2_2(number):
-    count = 0
-    for i in range(1, number+1):
-        if number % i == 0:
-            count += 1
-            print(f"{i} - {CheckEvenOrOdd(i)}")
-    print(f"Количество делителей: {count} - by Task2_2")
-
-# number = int(input("Введите число: "))
-# print()
-# Task2_1(number)
-# print()
-# Task2_2(number)
-
-
-def FindBoolValue(a, b):
-    result = not a or b
-    if result == True:
-        return 1
-    else:
-        return 0
-
-
-print('X Y R')
-for x in range(2):
-    for y in range(2):
-        print(x, end=' ')
-        print(y, end=' ')
-        print(FindBoolValue(x, y))
-
-# x = int(input("Введите X: "))
-# y = int(input("Введите Y: "))
-# FindBoolValue(x,y)
-
-print()
-for x in range(2):
-    for y in range(2):
-        print(f"{x} {y} {int(not x or y)}")
