@@ -1,0 +1,19 @@
+1.;Name	KARTAEV;NIKOLAY
+2.;Gender;MALE
+3.;Birth;Date;01.03.1987
+4.;City;Where;You;Were;Born;KRASNOGORSK
+5.;Country;Where;You;Were;Born	Russia
+6.;Country;of;Eligibility;for;the;DV;Program
+7.;Entrant;Photograph
+8.;Mailing;Address
+a.;In;Care;Of;(optional)
+b.;Address;Line;1;14;Novaya;street;Apt.;26
+c.;Address;Line;2;(optional)
+d.;City/Town
+e.;District/County/Province/State
+f.;Postal;Code/Zip;Code;143581
+g.;Country;Russia
+9.;Country;Where;You;Live;Today;Russia
+10.;Phone;Number;79957918378
+11.;E-mail;Address;travelkartaev@list.ru
+12.;What;is;the;highest;level;of;education;you;have;achieved,;as;of;today?;High;School;degree
