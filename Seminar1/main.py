@@ -60,3 +60,63 @@
 numbers = [5,-4,8,9,-9,4,7,0,1,-5]
 for i in numbers:
     print(i)
+    
+    
+
+def CheckEvenOrOdd(value):
+    if value % 2 == 0:
+        return ("четное")
+    else:
+        return ("нечетное")
+
+
+def Task2_1(number):
+    count = 0
+    for i in range(1, number+1):
+        if number % i == 0:
+            count += 1
+            if i % 2 == 0:
+                print(f"{i} - четное")
+            else:
+                print(f"{i} - нечетное")
+    print(f"Количество делителей: {count} - by Task2_1")
+
+
+def Task2_2(number):
+    count = 0
+    for i in range(1, number+1):
+        if number % i == 0:
+            count += 1
+            print(f"{i} - {CheckEvenOrOdd(i)}")
+    print(f"Количество делителей: {count} - by Task2_2")
+
+# number = int(input("Введите число: "))
+# print()
+# Task2_1(number)
+# print()
+# Task2_2(number)
+
+
+def FindBoolValue(a, b):
+    result = not a or b
+    if result == True:
+        return 1
+    else:
+        return 0
+
+
+print('X Y R')
+for x in range(2):
+    for y in range(2):
+        print(x, end=' ')
+        print(y, end=' ')
+        print(FindBoolValue(x, y))
+
+# x = int(input("Введите X: "))
+# y = int(input("Введите Y: "))
+# FindBoolValue(x,y)
+
+print()
+for x in range(2):
+    for y in range(2):
+        print(f"{x} {y} {int(not x or y)}")
