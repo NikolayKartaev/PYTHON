@@ -1,7 +1,8 @@
 # Задача 0
-# a = int(input("Введите число a: "))
-# b=a*a
-# print(f"Квадрат {a} = {b}")
+def Power():
+    a = int(input("Введите число a: "))
+    b=a*a
+    print(f"Квадрат {a} = {b}")
 
 # Задача 1
 # a = int(input("Введите число a: "))
@@ -127,7 +128,6 @@ def Task1_1():
 
 
 #Задача 2. Напишите программу, в которой пользователь будет задавать две строки, а программа - определять количество вхождений одной строки в другую.
-
 def Task2(a, b):
     count = 0
     for i in range(len(b)-len(a)+1):
@@ -150,15 +150,14 @@ def Task2_1():
 
 
 #Вывод по элементам
-phrase = input("Введите фразу: ")
-for el in phrase:
-    print(el, end='')
+# phrase = input("Введите фразу: ")
+# for el in phrase:
+#     print(el, end='')
 
-print()
-#Вывод элементов с индексами
-for i in range(len(phrase)):
-    print(phrase[i], end='')
-
+# print()
+# #Вывод элементов с индексами
+# for i in range(len(phrase)):
+#     print(phrase[i], end='')
 
 
 #Вывод дробного числа с указанием количества знаков после запятой без округления
@@ -167,3 +166,53 @@ def float():
     print(f"{fl:.6f}")
 
 
+#Задача 3. Дано число N. Заполните список длиной N элементами 1, -3, 9, -27, 81, -243...
+def Task3_1():
+    N = int(input())
+    array=[]
+    for i in range(N):
+        array.append((-3)**i)
+        if i==N-1:
+            print (array)
+        
+def Task3_2():
+    N = int(input())
+    for i in range(N):
+            print(f"{(-3)**i}", end=' ')
+
+
+
+#Задача 4. Найдите все числа до 10000, у который количество делителей равно 10.
+
+def Task0_3(number):
+    count = 0
+    for i in range(1, number+1):
+        if number % i == 0:
+            count += 1
+    return count
+
+def Task4():
+    countnumbers=0
+    for number in range(1,10001):
+        if Task0_3(number)==10:
+            countnumbers+=1
+            print(f"{number}\t", end='')
+    print()
+    print(f"Количество чисел с делителем 10 равно: {countnumbers}")
+
+Task4()
+
+def Task4_1():
+    countnumbers=0
+    for numbers in range(1,10001):
+        countdivs=0
+        for i in range (1, numbers+1):
+            if numbers%i==0:
+                countdivs+=1        
+        if countdivs==10:
+            countnumbers+=1
+            print(f"{numbers}\t", end='')
+    print()
+    print(countnumbers)
+
+Task4_1()
