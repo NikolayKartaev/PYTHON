@@ -200,7 +200,6 @@ def Task4():
     print()
     print(f"Количество чисел с делителем 10 равно: {countnumbers}")
 
-Task4()
 
 def Task4_1():
     countnumbers=0
@@ -215,4 +214,4 @@ def Task4_1():
     print()
     print(countnumbers)
 
-Task4_1()
+
