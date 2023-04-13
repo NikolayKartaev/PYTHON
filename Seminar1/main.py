@@ -150,14 +150,14 @@ def Task2_1():
 
 
 #Вывод по элементам
-phrase = input("Введите фразу: ")
-for el in phrase:
-    print(el, end='')
+# phrase = input("Введите фразу: ")
+# for el in phrase:
+#     print(el, end='')
 
-print()
-#Вывод элементов с индексами
-for i in range(len(phrase)):
-    print(phrase[i], end='')
+# print()
+# #Вывод элементов с индексами
+# for i in range(len(phrase)):
+#     print(phrase[i], end='')
 
 
 
@@ -167,3 +167,39 @@ def float():
     print(f"{fl:.6f}")
 
 
+#Задача 4. Найдите все числа до 10000, у который количество делителей равно 10.
+
+
+
+def Task0_3(number):
+    count = 0
+    for i in range(1, number+1):
+        if number % i == 0:
+            count += 1
+    return count
+
+
+def task4():
+    count=0
+    for i in range (1,10001):
+        if Task0_3(i)==10:
+            count+=1
+            print(f'{i}\t', end='')
+    print ()
+    print (f"Количество чисел: {count}")
+
+
+
+def task4_1():
+    count_numbers=0
+    for number in range (1,10001):
+        count_dividers=0
+        for dividers in range (1,number+1):
+            if number%dividers==0:
+                count_dividers+=1
+        if count_dividers==10:
+            count_numbers+=1
+            print(f'{number}\t', end='')
+    print(f"Количество чисел c 10 Дел: {count_numbers}")
+
+task4_1()
