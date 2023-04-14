@@ -28,15 +28,15 @@ def Task3():
 
     firstString = input("Введите первую строку: ")
     secondString = input("Введите вторую строку: ")
-    count = 0
+    print()
+    print(f'Даны строки: "{firstString}" и "{secondString}"')
     for char in firstString:
+        count = 0
         for i in secondString:
-            if i==char:
-                count+=1
-        print(count)
+            if i == char:
+                count += 1
+        print(f"Символ {char} втречается {count} раз во второй строке.")
 
-
-Task3()
 
 # Задача 4. Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Сдвиньте все элементы списка на 2 позиции вправо.
 # 3 -> [2, 3, -3, -2, -1, 0, 1]
@@ -44,11 +44,10 @@ Task3()
 
 def Task4():
     N = int(input("Введите N: "))
-    array = []
+    list = []
     for i in range(-N, N+1):
-        array.append(i)
-    print(array)
-    for j in range(round(N/2)):
-        temp = array[j+2]
-        array[j+2] = array[j]
-        array[j] = temp
+        list.append(i)
+    print(list)
+    list = list[-2:]+list[:-2]
+    print(list)
+    
