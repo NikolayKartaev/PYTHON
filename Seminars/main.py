@@ -343,7 +343,8 @@ def TaskS3_4():
 # Ввод заканчивается, когда введено слово «стоп». Определите сумму чека.
 
 def TaskS3_5():
-    prices = {"ручка": 5, "карандаш": 3, "ластик": 4} # или prices = dict(ручка = 5, карандаш = 3, ластик = 4) 
+    # или prices = dict(ручка = 5, карандаш = 3, ластик = 4)
+    prices = {"ручка": 5, "карандаш": 3, "ластик": 4}
     check = 0
     flag = True
     while flag:
@@ -351,36 +352,33 @@ def TaskS3_5():
         if goods == "стоп":
             flag = False
         elif goods in prices:
-            check += prices[goods] # Ищет в словаре prices по ключу введенного в переменную goods
+            # Ищет в словаре prices по ключу введенного в переменную goods
+            check += prices[goods]
         else:
             print("Такого товара нет. Введите корректное название")
     print(f"Сумма чека: {check}")
 
 
-TaskS3_5()
-
-
 # СЕМИНАР 4
 
-# Создайте кортеж, заполненный случайными числами. Напишите метод, который заменяет элемент в кортеже по заданному индексу другим случайным числом.
+# ЗАДАЧА 0. Создайте кортеж. Запишите в него 10 случайных чисел
+def TaskS4_1():
+    tuple1 = tuple(random.randint(1, 100) for _ in range(10))
+    N = int(input("Введите индекс элемента, которые хотите заменить: "))
+    print(tuple1)
+    tuple1 = tuple1[:N-1] + (random.randint(1, 100),) + tuple1[N:] 
+    print(tuple1)
+
+# ЗАДАЧА 1. Создайте кортеж, заполненный случайными числами. Напишите метод, который заменяет элемент в кортеже по заданному индексу другим случайным числом.
 def change_element(numbers, index):
     return numbers[:index] + (random.randint(1, 100), ) + numbers[index+1:]
-
 
 def TaskS4_2():
     tuple1 = tuple(random.randint(1, 10) for _ in range(5))
     index = 2
     print(*tuple1)
 
-
-# index = 2
-# print(numbers)
-# numbers = change_element(numbers, index)
-# print(numbers)
-# print(type(numbers))
-
-
-# Задача 2
+# ЗАДАЧА 2 На вход подаются два числа. Напишите метод, который вернёт сумму, разность, произведение и частное этих чисел.
 
 # def TaskS4_3(x,y):
 #     return (x+y, x-y, x*y, x/y)
@@ -389,6 +387,8 @@ def TaskS4_2():
 # y=int(input())
 # tuple2 = TaskS4_3(x,y)
 # print(*tuple2)
+# print(tuple2)
+
 
 # x = int(input())
 # y = int(input())
@@ -400,17 +400,18 @@ def TaskS4_2():
 
 def TaskS4_4():
     list1 = [random.randint(1, 20) for _ in range(10)]
-    set1 = set(list1)
-    list2 = list(set1)
+    list2 = list(set(list1))
     print(f"Список на 10 элементов: {list1}")
     print(f"Список без повторяющихся значений:{list2}")
     print(f"Удалено элементов: {len(list1) - len(list2)}")
 
 
-def TaskS4_5():
-    A = set("Илья Федор Семен Олег Лев Антон Артем Боря Стас Марк Ян".split())
-    B = set("Илья Георгий Лев Демьян Антон Владислав Боря Стас Марк Влад".split())
-    C = set("Федор Георгий Олег Демьян Артем Елисей Боря Стас Влад".split())
 
-    result = A.intersection(B).intersection(C)
-    print(result)
+def TaskS4_5():
+    A = set("Илья Федор Коля Семен Олег Лев Антон Артем Боря Стас Марк Ян".split())
+    B = set("Илья Георгий Лев Демьян Антон Коля Владислав Боря Стас Марк Влад".split())
+    C = set("Федор Георгий Олег Демьян Артем Коля Елисей Боря Стас Влад".split())
+
+    result = A.intersection(B).intersection(C) # или A & B & C
+    print(*result)
+

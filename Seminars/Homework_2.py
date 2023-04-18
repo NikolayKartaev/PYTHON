@@ -10,7 +10,7 @@ def Factorial():
         factorials.append(factorial)
     print(factorials)
 
-
+Factorial()
 # Задача 2. Выведите таблицу истинности для выражения ¬(X ∧ Y) ∨ Z.
 
 def Task2():
