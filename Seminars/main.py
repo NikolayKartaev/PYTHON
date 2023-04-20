@@ -233,3 +233,8 @@ print(nums)
 shift(nums, 3)
 print(nums)
 
+col=[]
+values = dict(Ручка = 5, Карандаш = 3, Ластик = 4)
+while i != "стоп":
+    col[i] = int(input)
+    check = values["Ручка"]*col[i]
