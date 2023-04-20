@@ -117,7 +117,7 @@ def Prisv():
 # Создание нового словаря
 d = dict()
 d = {}
-d = {"key": "value"}
+d = {"ключ": "value"}
 
 
 def Dictionary():
@@ -126,14 +126,14 @@ def Dictionary():
     d['key2'] = 'data2'  # Добавление значения в словарь по ключу (строка)
     print(d)
 
-    print(d['key1'])  # Печать значения по ключу
-    print(d['key2'])  # Печать значения по ключу
+    # print(d['key1'])  # Печать значения по ключу
+    # print(d['key2'])  # Печать значения по ключу
 
-    d['key2'] = 'data3'  # Перезаписать значения по ключу
-    d[123] = 100500  # Добавление значения в словарь по ключу (число)
+    # d['key2'] = 'data3'  # Перезаписать значения по ключу
+    # d[123] = 100500  # Добавление значения в словарь по ключу (число)
 
-    del d['key1']  # Удаление значения по ключу
-    print(d)
+    # del d['key1']  # Удаление значения по ключу
+    # print(d)
 
     for i in d:
         print(i)
@@ -143,6 +143,8 @@ def Dictionary():
         print("{}: {}".format(i, d[i]))
 
     print(d.items())
+    
+Dictionary()
 
 def Dictionary2():
     anketa = dict(Имя = input('Ваше имя: '),
@@ -153,7 +155,6 @@ def Dictionary2():
     for key, value in anketa.items():
                 print("{}: {}".format(key,value))
 
-Dictionary2()
 
 def Dictionary3():
     dictionary = {}
@@ -165,7 +166,6 @@ def Dictionary3():
     for k, v in dictionary.items():
         print(f"{k}: {v}")
 
-Dictionary3()
 
 # МНОЖЕСТВА - уникальные неупорядоченные значения
 

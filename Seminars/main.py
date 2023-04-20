@@ -245,8 +245,7 @@ def TaskS3_1():
     # print(numbers)
 
     length = int(input("Введите количество элементов списка: "))
-    numbers = [int(input("Введите элемент списка: "))
-               for _ in range(length)]  # создание списка через генератор списков
+    numbers = [int(input("Введите элемент списка: ")) for _ in range(length)]  # создание списка через генератор списков
     print(numbers)
     print(sum(numbers))
     if sum(numbers) % 2 == 0:
@@ -366,12 +365,15 @@ def TaskS4_1():
     tuple1 = tuple(random.randint(1, 100) for _ in range(10))
     N = int(input("Введите индекс элемента, которые хотите заменить: "))
     print(tuple1)
-    tuple1 = tuple1[:N-1] + (random.randint(1, 100),) + tuple1[N:] 
+    tuple1 = tuple1[:N-1] + (random.randint(1, 100),) + tuple1[N:]
     print(tuple1)
 
 # ЗАДАЧА 1. Создайте кортеж, заполненный случайными числами. Напишите метод, который заменяет элемент в кортеже по заданному индексу другим случайным числом.
+
+
 def change_element(numbers, index):
     return numbers[:index] + (random.randint(1, 100), ) + numbers[index+1:]
+
 
 def TaskS4_2():
     tuple1 = tuple(random.randint(1, 10) for _ in range(5))
@@ -406,17 +408,13 @@ def TaskS4_4():
     print(f"Удалено элементов: {len(list1) - len(list2)}")
 
 
+# Задача 4
 
 def TaskS4_5():
     A = set("Илья Федор Коля Семен Олег Лев Антон Артем Боря Стас Марк Ян".split())
     B = set("Илья Георгий Лев Демьян Антон Коля Владислав Боря Стас Марк Влад".split())
     C = set("Федор Георгий Олег Демьян Артем Коля Елисей Боря Стас Влад".split())
 
-    result = A.intersection(B).intersection(C) # или A & B & C
+    result = A.intersection(B).intersection(C)  # или A & B & C
     print(*result)
 
-col=[]
-values = dict(Ручка = 5, Карандаш = 3, Ластик = 4)
-while i != "стоп":
-    col[i] = int(input)
-    check = values["Ручка"]*col[i]
