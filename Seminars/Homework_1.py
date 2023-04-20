@@ -25,6 +25,14 @@ def WeekDay():
     else:
         print("Воскресенье")
 
+def WeekDay2():
+    weekdays=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    day = int(input("Введите день недели: "))
+    while day < 0 or day > 7:
+        day = int(input("Нет такого дня.\nВведите день недели: "))
+    print(weekdays[day-1])
+
+
 
 # Задача 2. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 2D пространстве.
 # A (3,6); B (2,1) -> 5,09
@@ -38,6 +46,8 @@ def Distance():
 
     distance = sqrt((y2-y1)**2 + (x2-x1)**2)
     print(f"Расстояние между точками: {distance:.3f}")
+
+Distance()
 
 
 # Задача 3. Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).
@@ -68,4 +78,4 @@ def PrintEven():
         if i % 2 == 0:
             print(i,  end=" ")
 
-PrintEven()
+
