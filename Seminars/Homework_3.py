@@ -35,26 +35,31 @@ def Task2():
 # Бот должен, как минимум, отвечать на фразы «привет», «как тебя зовут».
 # Если фраза ему неизвестна, он выводит соответствующую фразу.
 
+botName = input("Задайте имя боту: ")
+
 botPhrases = {"привет": "Привет!", "здравствуйте": "Привет!", "как дела": "Спасибо, все отлично! Как Ваши дела?",
-               "как дела?": "Спасибо, что спросили! Все прекрасно! Как Ваши дела?",
-               "": "", "": "", "": "", "": "", "": "", }
+              "как дела?": "Спасибо, что спросили! Все прекрасно! Как Ваши дела?",
+              "": "Повторите, пожалуйста!", "как тебя зовут": "Меня зовут " + botName, "как тебя зовут?": "Меня зовут " + botName, "что ты думаешь об ИИ": "Бесконечные возможности" }
 
-botName = input("Задайте имя боту")
-startBot = input("Напишите START для старта.\n")
 
-if startBot.lower() == "start":
+startBot = input("Напишите что-то для старта бота.\n").lower()
+
+if startBot != "" or startBot != "\n":
     flag = True
-else:
-    flag = False
-    print("Напишите START для старта.\n")
 
 while flag:
     your_message = input("Ваше сообщение: ").lower()
-    if your_message in botPhrases:
-        print(botPhrases[your_message])
-        print()
-    if your_message not in botPhrases:
-        print("Извините, я вас не понимаю.")
-        print()
     if your_message.lower() == "стоп":
         flag = False
+
+    elif your_message in botPhrases:
+        print(f"{botName}: {botPhrases[your_message]}")
+        print()
+        if botPhrases.items=="Меня зовут " + botName:
+            botPhrases[f'{your_message}'] = input()
+
+    else:
+        print(f"{botName}: Извините, на данный момент я не знаю, что ответить на эту фразу.\nНо я являюсь обучаемой моделью. Укажите, что я должен ответить на ваш вопрос: \n")
+        botPhrases[f'{your_message}'] = input()
+        print()
+
