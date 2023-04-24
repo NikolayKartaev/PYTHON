@@ -7,47 +7,46 @@ import random
 #     a = int(input("Введите число a: "))
 #     b = a*a
 #     print(f"Квадрат {a} = {b}")
-    
+
+
 def TaskS1_0():
     n = int(input("Введите число n: "))
     print(f"{n} -> {n**2}")
-    
+
 
 # # Задача 1 Напишите программу, которая на вход принимает два
 # числа и проверяет, является ли второе число квадратом
 # первого.
 
 def TaskS1_1():
-    a= int(input("Введите первое число: "))
-    b= int(input("Введите второе число: "))
-    if a**2==b:
+    a = int(input("Введите первое число: "))
+    b = int(input("Введите второе число: "))
+    if a**2 == b:
         print(f'Число {b} является квадратом {a}')
     else:
         print(f'Число {b} НЕ является квадратом {a}')
-        
+
 
 # Задача 2 Организуйте последовательный ввод чисел до тех пор, пока не будет введён 0.
 # Подсчитайте среди введённых чисел те, которые кратны трём.
 
 def TaskS1_2():
-    count=0
+    count = 0
     A = int(input("Введите число a: "))
-    while A !=0:
-        if A%3==0:
-            count+=1
+    while A != 0:
+        if A % 3 == 0:
+            count += 1
         A = int(input("Введите число a: "))
     print(f'Количество чисел кратных 3: {count}')
-    
 
 
 # Задача 3. Напишите программу, которая будет на число N и выводить числа от -N до N
 
 def TaskS1_3():
     N = abs(int(input("Введите число N: ")))
-    for i in range(-N,N+1):
-        print(i,end=' ')
-        
-    
+    for i in range(-N, N+1):
+        print(i, end=' ')
+
 
 # N = abs(int(input("Введите число N: "))) // модуль числа
 # i = -N
@@ -59,9 +58,8 @@ def TaskS1_3():
 # Задача 4. Напишите программу, которая будет принимать на вход дробь и показывать первую цифру дробной части числа.
 
 
-
 def TaskS1_4():
-    
+
     number = float(input("Введите число: "))
 
     print(int((number % 1 - number % 0.1) * 10))
@@ -261,7 +259,8 @@ def TaskS3_1():
     # print(numbers)
 
     length = int(input("Введите количество элементов списка: "))
-    numbers = [int(input("Введите элемент списка: ")) for _ in range(length)]  # создание списка через генератор списков
+    numbers = [int(input("Введите элемент списка: "))
+               for _ in range(length)]  # создание списка через генератор списков
     print(numbers)
     print(sum(numbers))
     if sum(numbers) % 2 == 0:
@@ -435,15 +434,39 @@ def TaskS4_5():
     print(*result)
 
 
+
 # СЕМИНАР 5
 
 # Задача 0. С помощью анонимной функции найдите в списке на 15 элементов числа, кратные 5.
 # Заполните список случайным образом числами от 1 до 100.
 
-def TaskS5_0():
-    list1=[random.randint (1,100) for _ in range(15)]
-    list2=list(filter(lambda x: x%5==0, list1))
+def TaskS5_00():
+    list1 = [random.randint(1, 100) for _ in range(15)]
+    list2 = list(filter(lambda x: x % 5 == 0, list1)) # перебирает коллекцию и выполняет условие функции для значения
+    list2 = list(filter(lambda x: not(x % 5), list1)) # not(x % 5) можно вместо x % 5 == 0
     print(list1)
     print(list2)
 
-TaskS5_0()
+
+def TaskS5_01():
+    list1 = [1, 10, 50, 100]
+    list2 = list(map(lambda y: y*5, list1)) # перебирает коллекцию и использует для элемента функцию
+    print(list1)
+    print(list2)
+
+
+# Задача 1. На вход подаётся четырёхзначное число. Получите список, состоящий из цифр данного числа, увеличенных на 10.
+
+def TaskS5_1():
+    N=input()
+    list1=[]
+    for el in N:
+        list1.append(int(el))
+    list2=list(map(lambda x: x+10, list1))
+    print(list2)
+
+TaskS5_1()
+
+number=int(input())
+while number%10>0:
+    print(lambda number: number%10*10)
