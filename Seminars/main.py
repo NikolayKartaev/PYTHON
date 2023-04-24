@@ -66,7 +66,6 @@ def TaskS1_4():
 
     print(int((number % 1 - number % 0.1) * 10))
 
-TaskS1_4()
 
 # # Задача 5. Напишите программу, которая находит наибольшее и наименьшее число из списка значений.
 
@@ -435,3 +434,16 @@ def TaskS4_5():
     result = A.intersection(B).intersection(C)  # или A & B & C
     print(*result)
 
+
+# СЕМИНАР 5
+
+# Задача 0. С помощью анонимной функции найдите в списке на 15 элементов числа, кратные 5.
+# Заполните список случайным образом числами от 1 до 100.
+
+def TaskS5_0():
+    list1=[random.randint (1,100) for _ in range(15)]
+    list2=list(filter(lambda x: x%5==0, list1))
+    print(list1)
+    print(list2)
+
+TaskS5_0()
