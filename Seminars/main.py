@@ -434,7 +434,6 @@ def TaskS4_5():
     print(*result)
 
 
-
 # СЕМИНАР 5
 
 # Задача 0. С помощью анонимной функции найдите в списке на 15 элементов числа, кратные 5.
@@ -442,15 +441,18 @@ def TaskS4_5():
 
 def TaskS5_00():
     list1 = [random.randint(1, 100) for _ in range(15)]
-    list2 = list(filter(lambda x: x % 5 == 0, list1)) # перебирает коллекцию и выполняет условие функции для значения
-    list2 = list(filter(lambda x: not(x % 5), list1)) # not(x % 5) можно вместо x % 5 == 0
+    # перебирает коллекцию и выполняет условие функции для значения
+    list2 = list(filter(lambda x: x % 5 == 0, list1))
+    # not(x % 5) можно вместо x % 5 == 0
+    list2 = list(filter(lambda x: not (x % 5), list1))
     print(list1)
     print(list2)
 
 
 def TaskS5_01():
     list1 = [1, 10, 50, 100]
-    list2 = list(map(lambda y: y*5, list1)) # перебирает коллекцию и использует для элемента функцию
+    # перебирает коллекцию и использует для элемента функцию
+    list2 = list(map(lambda y: y*5, list1))
     print(list1)
     print(list2)
 
@@ -458,15 +460,46 @@ def TaskS5_01():
 # Задача 1. На вход подаётся четырёхзначное число. Получите список, состоящий из цифр данного числа, увеличенных на 10.
 
 def TaskS5_1():
-    N=input()
-    list1=[]
+    N = input("Enter number: ")
+    list1 = []
     for el in N:
-        list1.append(int(el))
-    list2=list(map(lambda x: x+10, list1))
+        list1.append(int(el)) # создание списка из числа с помощью цикла
+    list2 = list(map(lambda x: x+10, list1))
     print(list2)
 
-TaskS5_1()
 
-number=int(input())
-while number%10>0:
-    print(lambda number: number%10*10)
+def TaskS5_1b():
+    N = input("Enter number: ")
+    list1 = [int(el) for el in N] # создание списка из числа с помощью генератора
+    list2 = list(map(lambda x: x + 10, list1))
+    print(list2)
+
+
+def TaskS5_2():
+
+    animals=['010100001100001001010011001011000000'
+                '000001011100001011'
+                '001011001111010011'
+                '010010010011001111010001001111000111'
+                '001100000101000010'
+                '001011010001001111001100001001001011'
+                '001101010100001100'
+                '000001000000010001010010010100001011'
+                '000011000101010000000000010001000100'
+                '010010001111001101'
+                '010010001111000001000000001011000000'
+                '011000001001000111']
+    
+    alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+
+    alphabet = list(alphabet)
+    dictionary ={}
+    for i in range(len(alphabet)):
+        dictionary[i] = alphabet[i]
+
+    print(dictionary)
+
+
+#animals_list = [list(alphabet[int(animal[x: x + 6], 2)] for x in range(0, len(animal),6)) for animal in animals]
+
+TaskS5_2()
