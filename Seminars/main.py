@@ -441,10 +441,11 @@ def TaskS4_5():
 
 def TaskS5_00():
     list1 = [random.randint(1, 100) for _ in range(15)]
-    # перебирает коллекцию и выполняет условие функции для значения
-    list2 = list(filter(lambda x: x % 5 == 0, list1))
-    # not(x % 5) можно вместо x % 5 == 0
-    list2 = list(filter(lambda x: not (x % 5), list1))
+
+    
+    list2 = list(filter(lambda x: x % 5 == 0, list1)) # перебирает коллекцию и выполняет условие функции для значения
+    
+    list2 = list(filter(lambda x: not (x % 5), list1)) # not(x % 5) можно вместо x % 5 == 0
     print(list1)
     print(list2)
 
@@ -470,23 +471,25 @@ def TaskS5_1():
 
 def TaskS5_1b():
     N = input("Enter number: ")
-    # создание списка из числа с помощью генератора
-    list1 = [int(el) for el in N]
+    list1 = [int(el) for el in N] # создание списка из числа с помощью генератора
     list2 = list(map(lambda x: x + 10, list1))
     print(list2)
+
+def TaskS5_1c():
+    N = list(str(input("Enter number: "))) # создание списка из числа с помощью преобразований типов данных
+    print(list(map(lambda x: int(x) + 10, N)))
+
 
 def ToBinary(x):
     result=""
     while x>0:
         result = str(x%2) + result
         x//=2
-    
     return "0"*(6-len(result)) + result 
 
 def decoder(code):
     animal = [code[i:i+6]  for i in range(0, len(code),6)]
-    print(animal)
-        
+    print(animal)       
 
 def TaskS5_2():
 
@@ -527,11 +530,66 @@ list1=[random.randint(1,25) for _ in range(10)]
 
 def IsUnique(sourceList):
     print(sourceList)
-    if len(sourceList) == len(list(set(sourceList))):
+    if len(sourceList) == len(set(sourceList)):
         print(f"{sourceList} - уникальный")
     else: 
-        print(f"{sourceList} - НЕуникальный")
+        print(f"{sourceList} - есть повторы")
         
-IsUnique(list1)
-# IsUnique(list2)
+
+
+
+def Task2():
+    number1=4444156666
+    number2=6164646445
+    dict1=dict()
+    dict2=dict()
+    
+    number1=str(number1)
+    number2=str(number2)
+
+    for i in number1:
+        dict1[i]=number1.count(i)
+
+    for i in number2:
+        dict2[i]=number2.count(i)
+
+    print(dict1)
+    print(dict2)
+
+    if dict1 == dict2:
+        print("Числа состоят из одних и тех же цифр.")
+    else:
+        print("Числа состоят из разных цифр.")
         
+
+# Task2()
+
+def Task2b():
+    number1=4444411
+    number2=4411444
+    
+    number1=str(number1)
+    number2=str(number2)
+
+    dict1=dict([i,number1.count(i)] for i in number1) # в словарь передается список для всех i из строки
+    dict2=dict((i,number2.count(i)) for i in number2) # в словарь передается кортеж для всех i из строки
+
+    print(dict1)
+    print(dict2)
+
+    if dict1 == dict2:
+        print("Числа состоят из одних и тех же цифр.")
+    else:
+        print("Числа состоят из разных цифр.")
+        
+# Task2b()
+        
+
+# Задача 3. 2+2
+
+example = input("Введите арифметическое выражение: ")
+
+
+
+print(list1)
+
