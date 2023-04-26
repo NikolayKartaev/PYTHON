@@ -587,9 +587,45 @@ def Task2b():
 
 # Задача 3. 2+2
 
-example = input("Введите арифметическое выражение: ")
+def Task3():
+    example = input("Введите арифметическое выражение: ")
+    if "+" in example:
+        for i in range(len(example)-example.count("+")):
+            result += int(example.split("+")[i])
 
+    print(result)
+    
+def Task3b():
+    example = input("Введите арифметическое выражение: ")
+    if "+" in example:  
+        numbers = example.split("+")
+        print(int(numbers[0])+int(numbers[1]))
+    if "-" in example:  
+        numbers = example.split("-")
+        print(int(numbers[0])-int(numbers[1]))
+    if "*" in example:  
+        numbers = example.split("*")
+        print(int(numbers[0])*int(numbers[1]))
+    if "/" in example:  
+        numbers = example.split("/")
+        print(int(numbers[0])/int(numbers[1]))
+    
 
+# Task3b()
 
-print(list1)
+# Задача 4. Имеется 1000 рублей. Бык стоит – 100 рублей, корова – 50 рублей, телёнок – 5 рублей.
+# Сколько быков, коров и телят можно купить на все эти деньги, если всего надо купить 100 голов скота?
 
+def Task4():
+    budget = 1000
+    bull_price = 100
+    cow_price = 50
+    calf_price = 5
+
+    for bull_count in range (1,101):
+        for cow_count in range (1,101):
+            for calf_count in range(1,101):
+                if bull_count*bull_price + cow_count*cow_price + calf_count*calf_price == budget and bull_count+cow_count+calf_count == 100:
+                    print(f"Купленное количество: быков - {bull_count}, коров - {cow_count}, телят - {calf_count}")
+                    
+# Task4()

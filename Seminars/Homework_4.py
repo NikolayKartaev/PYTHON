@@ -8,26 +8,28 @@ def prime_numbers(N):
         for i in range(2, n//2+1):
             if n % i == 0:
                 count += 1
-        if count <= 0:
+        if count == 0:
             prime_list.append(n)
     return prime_list
+
 
 
 def find_multiplier(N):
     LIST = []
     prime = 2
-    while prime**2 <= N:
+    while N !=1:
         if N % prime == 0:
             LIST.append(prime)
-            N = N // prime
+            N //= prime
         else:
             prime += 1
     if N > 1:
         LIST.append(N)
     return LIST
 
-N = int(input("Введите число N: "))
-print(f"{N} -> {find_multiplier(N)}")
+
+# N = int(input("Введите число N: "))
+# print(f"{N} -> {find_multiplier(N)}")
 
 
 # Задача 2. В первом списке находится информация об ассортименте мороженного, во втором списке - информация о том, какое мороженное есть на складе.
