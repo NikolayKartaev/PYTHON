@@ -13,35 +13,24 @@ def Task1():
 # Порядок элементов менять нельзя.
 # [1, 5, 2, 3, 4, 6, 1, 7] =>[1, 2, 3] или [2, 7] или [4, 6, 7] и т.д.
 
+
 def Task2():
     numbers=[randint(1,15) for _ in range(10)]
-    print (numbers)
+    print (f"Исходный список случайных чисел:{numbers}")
     
     checklist1=[]
-    checklist1.append(numbers[randint(0,9)])
-    print(checklist1)
+    rand_index=randint(0,len(numbers)-2)
+    checklist1.append(numbers[rand_index])
 
-    for i in numbers:
-        if element>max(checklist1):
-            checklist1.append(element) 
+    for i in range (rand_index,len(numbers)):
+        if numbers[i]>max(checklist1):
+            checklist1.append(numbers[i]) 
+            
+    print(f"Случайная возрастающая последовательность начиная с позиции {rand_index}: {checklist1}")
     
-    print(checklist1)
-    
 
-# Task2()
+Task2()
 
-nums = [randint(1,15) for _ in range(10)]
-print(nums)
-# Первый вариант
-
-def get_up2(nums):
-    ups = [nums[0]]
-    for i in nums:
-        if i > max(ups):
-            ups.append(i)
-    return ups
-    
-print(get_up2(nums))
 
 
 # Задача 3. Задайте список случайных чисел от 1 до 10. Посчитайте, сколько всего совпадающих элементов есть в списке. Удалите все повторяющиеся элементы.
