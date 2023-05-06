@@ -60,10 +60,16 @@ def TaskS1_3():
 
 def TaskS1_4():
 
-    number = float(input("Введите число: "))
+    number = 6
+    div = 3
+    a=number//div
+    b= number%div
+    
+    print(a*div+b)
+    
 
-    print(int((number % 1 - number % 0.1) * 10))
 
+TaskS1_4()
 
 # # Задача 5. Напишите программу, которая находит наибольшее и наименьшее число из списка значений.
 
@@ -629,3 +635,5 @@ def Task4():
                     print(f"Купленное количество: быков - {bull_count}, коров - {cow_count}, телят - {calf_count}")
                     
 # Task4()
+
+
