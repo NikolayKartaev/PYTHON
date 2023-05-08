@@ -9,21 +9,17 @@ def CreateList():
 list_3 = [1, 2, 3, 4, 5]
 
 # Вывод списка без скобочек и запятых - открытие списка
-
-
 def PrintList():
     print(*list_3)
 
 # ФУНКЦИИ СПИСКОВ
 # Добавление элемента в конец списка
 
-
 def Append():
     list_3.append(6)
     print(*list_3)
 
 # Добавление элемента через цикл
-
 
 def AppendLoop():
     list_3_1 = list()
@@ -32,8 +28,6 @@ def AppendLoop():
         print(list_3_1)
 
 # Удаление элемента с конца (.pop удаляет элемент и возвращает его )
-
-
 def Pop():
     list_3.append(6)
     print(list_3)
@@ -46,14 +40,13 @@ def Pop():
     print(list_3)
 
 # Вставляем элемент на указанный индекс (нужную позицию)
-
-
 def Insert():
     print(list_3)
     list_3.insert(2, 10)
     print(list_3)
 
-def shift(list, steps): # Сделать смещение списка ну указанное количество элементов
+# Сделать смещение списка ну указанное количество элементов
+def shift(list, steps): 
     if steps < 0:
         steps = abs(steps)
         for i in range(steps):
@@ -67,8 +60,6 @@ def shift(list, steps): # Сделать смещение списка ну ук
 
 
 # Срезы списков
-
-
 def PrintList_2():
     print(list_3[-2:])
     print(list_3[::3])
@@ -110,6 +101,7 @@ def Prisv():
 
     for i in range(len(v)):  # Вывод значений с индексами списка/кортежа
         print(v[i], end=" ")
+    print()
 
 
 # СЛОВАРИ - неупорядоченные коллекции произвольных объемов с доступом по ключу (строка, число)

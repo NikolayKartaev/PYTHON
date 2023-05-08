@@ -57,8 +57,14 @@ def TaskS1_3():
 
 # Задача 4. Напишите программу, которая будет принимать на вход дробь и показывать первую цифру дробной части числа.
 
-
 def TaskS1_4():
+    n = float(input("Введите число: "))
+    print(n)
+    print(int(n*10//1)%10)
+
+
+
+def TaskS1_4b():
 
     number = 6
     div = 3
@@ -68,19 +74,27 @@ def TaskS1_4():
     print(a*div+b)
     
 
-
-TaskS1_4()
-
 # # Задача 5. Напишите программу, которая находит наибольшее и наименьшее число из списка значений.
 
-# number = int(input("Введите число: "))
-# min = number
-# max = number
-# while number!=0:
-#     number = int(input("Введите число: "))
-#     if number<min: min=number
-#     if number>max: max=number
-# print(f"Максимум {max}, минимум {min}")
+def TaskS1_5():
+    number = int(input("Введите число: "))
+    min = number
+    max = number
+    while number!=0:
+        number = int(input("Введите число: "))
+        if number<min: min=number
+        if number>max: max=number
+    print(f"Максимум {max}, минимум {min}")
+
+def TaskS1_5b():
+    number = [1,2,3]
+    print(number)
+    min = number[0]
+    max = number[0]
+    for i in number:
+        if i<min: min=i
+        if i>max: max=i
+    print(f"Максимум {max}, минимум {min}")
 
 
 # numbers = [5,-4,8,9,-9,4,7,0,1,-5]
@@ -88,12 +102,7 @@ TaskS1_4()
 #     print(i)
 
 
-def CheckEvenOrOdd(value):
-    if value % 2 == 0:
-        return ("четное")
-    else:
-        return ("нечетное")
-
+# СЕМИНАР 2
 
 def Task0_1(number):
     count = 0
@@ -106,7 +115,12 @@ def Task0_1(number):
                 print(f"{i} - нечетное")
     print(f"Количество делителей: {count} - by Task0_1")
 
-
+def CheckEvenOrOdd(value):
+    if value % 2 == 0:
+        return ("четное")
+    else:
+        return ("нечетное")
+    
 def Task0_2(number):
     count = 0
     for i in range(1, number+1):
@@ -115,7 +129,9 @@ def Task0_2(number):
             print(f"{i} - {CheckEvenOrOdd(i)}")
     print(f"Количество делителей: {count} - by Task0_2")
 
-# number = int(input("Введите число: "))
+
+
+# number = int(input("Вв    едите число: "))
 # print()
 # Task2_1(number)
 # print()
@@ -139,9 +155,10 @@ def Task1():
             print(y, end=' ')
             print(FindBoolValue(x, y))
 
+
 # x = int(input("Введите X: "))
 # y = int(input("Введите Y: "))
-# FindBoolValue(x,y)
+# print(FindBoolValue(x, y))
 
 
 def Task1_1():

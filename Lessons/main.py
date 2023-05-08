@@ -69,17 +69,17 @@
 # print (f"{a} - {b} - {c}")
 # print ("{} - {} - {}".format(a,b,c))
 
-# n = int(input("Введите число: "))
-# flag = True
-# i = 2
-# while flag:
-#     if n % i == 0:
-#         flag = False
-#         print(f"Наименьший делитель числа {n} равен {i}")
-#     elif i > n//2:
-#         print(f"Наименьший делитель числа {n} равен {n}")
-#         flag = False
-#     i += 1
+n = int(input("Введите число: "))
+flag = True
+i = 2
+while flag:
+    if n % i == 0:
+        flag = False
+        print(f"Наименьший делитель числа {n} равен {i}")
+    elif i > n//2:
+        print(f"Наименьший делитель числа {n} равен {n}")
+        flag = False
+    i += 1
 
 
 # for i in range(5):  
