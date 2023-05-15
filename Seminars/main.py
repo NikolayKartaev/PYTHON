@@ -1,5 +1,6 @@
 import string
 import random
+from random import randint as R
 
 # Задача 0
 
@@ -521,6 +522,12 @@ def TaskS4_5():
 # Задача 0. С помощью анонимной функции найдите в списке на 15 элементов числа, кратные 5.
 # Заполните список случайным образом числами от 1 до 100.
 
+def tasks5_000():
+    number_list=[R(1,100) for _ in range(15)]
+    print(number_list)
+    print(*list(filter(lambda el:el%5==0,number_list)))
+
+
 def TaskS5_00():
     list1 = [random.randint(1, 100) for _ in range(15)]
 
@@ -538,9 +545,31 @@ def TaskS5_01():
     list2 = list(map(lambda y: y*5, list1))
     print(list1)
     print(list2)
+    
+
 
 
 # Задача 1. На вход подаётся четырёхзначное число. Получите список, состоящий из цифр данного числа, увеличенных на 10.
+def option1():
+    N=list(input())
+    listlet=list(map(lambda x: int(x)+10, N))
+    print(listlet)
+
+
+def option2():
+    N=input()
+    listN=list()
+    for i in N:
+        listN.append(int(i))
+    x=list(map(lambda x: x+10, listN))
+    print(x)
+    
+def option3():
+    N=input()
+    listN=[int(el)+10 for el in N]
+    print(listN)
+
+
 
 def TaskS5_1():
     N = input("Enter number: ")
@@ -560,6 +589,8 @@ def TaskS5_1b():
 def TaskS5_1c():
     N = list(str(input("Enter number: "))) # создание списка из числа с помощью преобразований типов данных
     print(list(map(lambda x: int(x) + 10, N)))
+
+
 
 
 def ToBinary(x):

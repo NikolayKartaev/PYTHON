@@ -23,8 +23,20 @@ def prime(N): #НАХОДИМ СПИСОК ПРОСТЫХ ЧИСЕЛ
             primelist.append(i)
     print(primelist)
     
-prime(12)
+def Zadacha():
+    L=int(input())
+    ListM=list()
+    primenumber=2
+    while L !=1:
+        if L%primenumber==0:
+            ListM.append(primenumber)
+            L//=primenumber
+        else:
+            primenumber+=1
     
+    print("{}".format(list(el for el in ListM)))
+    
+        
 
 
 
@@ -52,6 +64,8 @@ def find_multiplier(N):
 # 1 строка файла. "Сливочное", «Бурёнка", «Вафелька», «Сладкоежка»
 # 2 строка файла. «Сливочное», «Вафелька», «Сладкоежка»
 # Ответ. Закончилось: «Бурёнка»
+
+
 
 
 def Task2():

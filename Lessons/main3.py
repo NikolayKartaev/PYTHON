@@ -23,6 +23,8 @@ def sumStr(*args):  # передача неизвестного числа ар�
         result += element
     return result
 
+sumStr()
+
 # print(sumStr("1,2","ff","555", "eee")) # Конкатенация строк (concatenate)
 
 
