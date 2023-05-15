@@ -10,7 +10,6 @@ def Factorial():
         factorials.append(factorial)
     print(factorials)
 
-Factorial()
 # Задача 2. Выведите таблицу истинности для выражения ¬(X ∧ Y) ∨ Z.
 
 def Task2():
@@ -51,3 +50,14 @@ def Task4():
     list = list[-2:]+list[:-2]
     print(list)
     
+    
+def Zad():
+    N=int(input())
+    listN=[i for i in range (-N,N+1)]
+    print(listN)
+    list2=listN[-2:]+listN[:-2]
+    print(list2)
+    for i in range(2):
+        listN.insert(0, listN.pop())
+    print(listN)
+

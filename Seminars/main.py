@@ -69,7 +69,6 @@ def TaskS1_4():
     
 
 
-TaskS1_4()
 
 # # Задача 5. Напишите программу, которая находит наибольшее и наименьшее число из списка значений.
 
@@ -198,14 +197,8 @@ def Task3_1():
     array = []
     for i in range(N):
         array.append((-3)**i)
-        if i == N-1:
-            print(array)
-
-
-def Task3_2():
-    N = int(input())
-    for i in range(N):
-        print(f"{(-3)**i}", end=' ')
+        
+    print(array)
 
 
 # Задача 4. Найдите все числа до 10000, у который количество делителей равно 10.
@@ -226,7 +219,7 @@ def Task4():
             print(f"{number}\t", end='')
     print()
     print(f"Количество чисел с делителем 10 равно: {countnumbers}")
-
+    
 
 def Task4_1():
     countnumbers = 0
@@ -255,6 +248,7 @@ def shift(list, steps):  # Сделать смещение списка ну у�
             list.insert(0, list.pop())
 
 
+    
 # SEMINAR_3
 
 def TaskS3_1():
@@ -264,7 +258,7 @@ def TaskS3_1():
     #     numbers[i] = random.randint(0,10)          создание списка через цикл
     # print(numbers)
 
-    length = int(input("Введите количество элементов списка: "))
+    length = int(input("Введите количество элементов  списка: "))
     numbers = [int(input("Введите элемент списка: "))
                for _ in range(length)]  # создание списка через генератор списков
     print(numbers)
@@ -286,6 +280,7 @@ def TaskS3_1():
     # numbers=list(numbers)                         # создание списка из генератора
     # print(numbers)
     # print(type(numbers))
+
 
 
 # Задача 1. В списке хранятся сведения о количестве осадков, выпавших за каждый день июня. Определите в какой период выпало больше осадков:
@@ -351,10 +346,24 @@ def Dictionary3():
 def TaskS3_4():
 
     symbols = string.ascii_letters + string.digits + string.punctuation
-
+    s=''
     password = [symbols[random.randint(0, len(symbols))] for _ in range(
         int(input("Введите длину пароля: ")))]
-    print(*password, end='')
+    print(password)
+    for i in password:
+        s+=i
+    print(s)
+
+def PasswordGenerator():
+    pass_symbols = string.ascii_letters + string.digits + string.punctuation
+    passwordList = [pass_symbols[random.randint(0, len(pass_symbols))] for _ in range(int(input()))]
+    password=""
+    for i in passwordList:
+        password+=i
+    print(password)
+    
+        
+
 
 
 # Задача 4. Ручка стоит – 5 рублей, карандаш – 3 рубля, ластик – 4 рубля.
@@ -386,8 +395,11 @@ def TaskS4_1():
     tuple1 = tuple(random.randint(1, 100) for _ in range(10))
     N = int(input("Введите индекс элемента, которые хотите заменить: "))
     print(tuple1)
-    tuple1 = tuple1[:N-1] + (random.randint(1, 100),) + tuple1[N:]
+    tuple1 = tuple1[:N] + (random.randint(1, 100),) + tuple1[N+1:]
     print(tuple1)
+
+
+
 
 # ЗАДАЧА 1. Создайте кортеж, заполненный случайными числами. Напишите метод, который заменяет элемент в кортеже по заданному индексу другим случайным числом.
 
@@ -398,8 +410,22 @@ def change_element(numbers, index):
 
 def TaskS4_2():
     tuple1 = tuple(random.randint(1, 10) for _ in range(5))
+    print(tuple1)
     index = 2
-    print(*tuple1)
+    print(change_element(tuple1, index))
+
+def Z(tupleN, N):
+    return tupleN[:N]+(random.randint(1,15),)+tupleN[N+1:]
+
+def Zadacha():
+    N=int(input())
+    tuple1=tuple(random.randint(1,15) for _ in range(10))
+    print(tuple1)
+    tuple2=tuple1[:N]+(random.randint(1,15),)+tuple1[N+1:]
+    print(tuple2)
+    tuple3=Z(tuple1,N)
+    print(tuple3)    
+
 
 # ЗАДАЧА 2 На вход подаются два числа. Напишите метод, который вернёт сумму, разность, произведение и частное этих чисел.
 
@@ -417,6 +443,10 @@ def TaskS4_2():
 # y = int(input())
 # print(" {}, {}, {}, {}".format(x+y,x-y,x*y,x/y))
 
+def Calculate(a,b):
+    return a+b, a-b, a*b, a/b
+
+
 # ЗАДАЧА 3
 # Сгенерируйте список случайных чисел от 1 до 20, состоящий из 10 элементов.
 # Удалите из списка дубликаты уже имеющихся элементов. Определите, сколько элементов было удалено.
@@ -428,6 +458,10 @@ def TaskS4_4():
     print(f"Список без повторяющихся значений:{list2}")
     print(f"Удалено элементов: {len(list1) - len(list2)}")
 
+def T4():
+    list1=[random.randint(1,20) for _ in range(10)]
+    list2=list(set(list1))
+    print("list1 - {}, list2 - {}, удалено: {}".format(list1, list2, (len(list1)-len(list2))))
 
 # Задача 4
 
@@ -438,6 +472,11 @@ def TaskS4_5():
 
     result = A.intersection(B).intersection(C)  # или A & B & C
     print(*result)
+    
+    
+    
+    
+    
 
 
 # СЕМИНАР 5

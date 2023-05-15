@@ -12,6 +12,20 @@ def prime_numbers(N):
             prime_list.append(n)
     return prime_list
 
+def prime(N): #НАХОДИМ СПИСОК ПРОСТЫХ ЧИСЕЛ
+    primelist=list()
+    for i in range(2,N):
+        count=0
+        for j in range(2, i//2+1 ):
+            if  i%j==0:
+                count+=1
+        if count==0:
+            primelist.append(i)
+    print(primelist)
+    
+prime(12)
+    
+
 
 
 def find_multiplier(N):
