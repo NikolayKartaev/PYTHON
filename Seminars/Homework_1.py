@@ -33,6 +33,12 @@ def WeekDay2():
     print(weekdays[day-1])
 
 
+def WeekDay3():
+    weekdays={"1":'Monday', "2":'Tuesday', "3":'Wednesday', "4":'Thursday', "5":'Friday', "6":'Saturday', "7":'Sunday'}
+    day = input("Введите день недели: ")
+    print(weekdays[day])
+
+
 
 # Задача 2. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 2D пространстве.
 # A (3,6); B (2,1) -> 5,09
@@ -45,7 +51,8 @@ def Distance():
     y2 = float(input("Введите координату второй точки по оси ординат: "))
 
     distance = sqrt((y2-y1)**2 + (x2-x1)**2)
-    print(f"Расстояние между точками: {distance:.3f}")
+    print(f"Расстояние между точками: {distance:.4f}")
+    print(f"Расстояние между точками: {round(distance,4)}")
 
 Distance()
 
