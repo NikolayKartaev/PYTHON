@@ -191,6 +191,16 @@ def Task2_1():
             count += 1
     print(count)
 
+def Task2repeat():
+    count=0
+    phrase = input("Введите фразу: ")
+    word = input("Введите слово: ")
+    for i in range (0, len(phrase)-len(word)+1):
+        if word == phrase[i:i+len(word)]:
+            count+=1
+    print(count)
+
+
 
 # Вывод по элементам
 # phrase = input("Введите фразу: ")
@@ -219,6 +229,7 @@ def Task3_1():
             print(array)
 
 
+
 def Task3_2():
     N = int(input())
     for i in range(N):
@@ -227,7 +238,7 @@ def Task3_2():
 
 # Задача 4. Найдите все числа до 10000, у который количество делителей равно 10.
 
-def Task0_3(number):
+def NumCounters(number):
     count = 0
     for i in range(1, number+1):
         if number % i == 0:
@@ -238,11 +249,13 @@ def Task0_3(number):
 def Task4():
     countnumbers = 0
     for number in range(1, 10001):
-        if Task0_3(number) == 10:
+        if NumCounters(number) == 10:
             countnumbers += 1
             print(f"{number}\t", end='')
     print()
-    print(f"Количество чисел с делителем 10 равно: {countnumbers}")
+    print(f"Количество чисел с 10 делителями: {countnumbers}")
+
+
 
 
 def Task4_1():
