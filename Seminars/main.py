@@ -638,6 +638,15 @@ def TaskS5_2():
 
 # СЕМИНАР 6
 
+def CheckRandom(lst):
+    if len(lst)==len(set(lst)):
+        print(f"{lst} - Список с уникальными значениями")
+    else: print(f"{lst} - Значения не уникальны!")
+        
+    
+# random_list=[int(input("Введите элемент списка:")) for _ in range(int(input("Введите размер списка: ")))]
+
+
 # Задача 1. Дан список случайных элементов. Проверьте, что все его элементы уникальны.
 list1=[random.randint(1,25) for _ in range(10)]
 
@@ -648,8 +657,18 @@ def IsUnique(sourceList):
     else: 
         print(f"{sourceList} - есть повторы")
         
-
-
+def Task2_0():
+    number1=4444156666
+    number2=6164646445
+    
+    n1=[int(el) for el in str(number1)]
+    n2=[int(el) for el in str(number2)]
+    n1.sort()
+    n2.sort()
+    if n1== n2:
+        print(f"{n1} {n2} yes")
+    else: print("no")
+    
 
 def Task2():
     number1=4444156666
@@ -697,6 +716,32 @@ def Task2b():
         
 # Task2b()
         
+def Task2Maths():
+    n1=int(input())
+    n2=int(input())
+    
+    digits=[0]*10
+    
+    while n1>0:
+        index=n1%10
+        digits[index]+=1
+        n1//=10
+    while n2>0:
+        index=n2%10
+        digits[index]-=1
+        n2//=10
+        
+    for el in digits:
+        if el!=0:
+            print("Состоят из разных чисел")
+            return False
+        
+    print("Состоят из одинаковых чисел")
+        
+        
+
+# Task2Maths()  
+    
 
 # Задача 3. 2+2
 
