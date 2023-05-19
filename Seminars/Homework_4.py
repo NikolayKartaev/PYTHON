@@ -24,7 +24,14 @@ def prime(N): #НАХОДИМ СПИСОК ПРОСТЫХ ЧИСЕЛ
     print(primelist)
     
 prime(12)
-    
+
+
+def method(L):
+    L=int(input())
+    resultlist=list()
+    for i in range(2,L//2+1):
+        
+
 
 
 
