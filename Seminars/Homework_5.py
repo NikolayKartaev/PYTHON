@@ -43,16 +43,20 @@ def Task3():
     list1=[randint(1,15) for _ in range(10)]
     print(f"\nИсходный список чисел: {list1}")
 
-    checklist1=[]
-    checklist2=[]
+    # checklist1=[]
+    # checklist2=[]
     
-    for i in range(len(list1)):
-        if list1[i] not in checklist1:
-            checklist1.append(list1[i])
-        else:
-            checklist2.append(list1[i])
+    # for i in range(len(list1)):
+    #     if list1[i] not in checklist1:
+    #         checklist1.append(list1[i])
+    #     else:
+    #         checklist2.append(list1[i])
 
-    print(f"Список уникальных элементов: {checklist1}")
-    print(f"{len(checklist2)+len(set(checklist2))} элемента(ов) совпадают\n")
+    # print(f"Список уникальных элементов: {checklist1}")
+    # print(f"{len(checklist2)+len(set(checklist2))} элемента(ов) совпадают\n")
+    
+    print(len(list(filter(lambda x: list1.count(x)>1, list1))))
+    print((list(map(lambda x: list1.count(x)>1, list1))).count(True))
+    
 
 

@@ -132,7 +132,7 @@ def Task0_2(number):
 
 
 
-# number = int(input("Вв    едите число: "))
+# number = int(input("Введите число: "))
 # print()
 # Task2_1(number)
 # print()
@@ -228,6 +228,10 @@ def Task3_1():
         array.append((-3)**i)
         if i == N-1:
             print(array)
+            
+def Task3_1b():
+    array=[(-3)**i for i in range(int(input()))]
+    print(array)
 
 
 
@@ -394,12 +398,10 @@ def TaskS3_4():
 
 def PasswordGenerator():
     pass_symbols = string.ascii_letters + string.digits + string.punctuation
-    passwordList = [pass_symbols[random.randint(0, len(pass_symbols))] for _ in range(int(input()))]
-    password=""
-    for i in passwordList:
-        password+=i
-    print(password)
     
+    print("".join(map(lambda x: str(x), 
+                               (pass_symbols[random.randint(0, len(pass_symbols))] 
+                                                  for _ in range(int(input()))))))
         
 
 
@@ -541,7 +543,7 @@ def TaskS5_00():
 
 def TaskS5_01():
     list1 = [1, 10, 50, 100]
-    # перебирает коллекцию и использует для элемента функцию
+    # перебирает коллекцию и использует для элемента y лямбда-функцию
     list2 = list(map(lambda y: y*5, list1))
     print(list1)
     print(list2)
@@ -551,24 +553,19 @@ def TaskS5_01():
 
 # Задача 1. На вход подаётся четырёхзначное число. Получите список, состоящий из цифр данного числа, увеличенных на 10.
 def option1():
-    N=list(input())
-    listlet=list(map(lambda x: int(x)+10, N))
-    print(listlet)
+    print(list(map(lambda x: int(x)+10, input())))  # создание списка из числа с помощью преобразований типов данных лямбдой-функцией
 
 
 def option2():
     N=input()
     listN=list()
-    for i in N:
+    for i in N: # создание списка из числа с помощью цикла
         listN.append(int(i))
     x=list(map(lambda x: x+10, listN))
     print(x)
     
 def option3():
-    N=input()
-    listN=[int(el)+10 for el in N]
-    print(listN)
-
+    print([int(el)+10 for el in input()]) # создание списка из числа с помощью генератора
 
 
 def TaskS5_1():
