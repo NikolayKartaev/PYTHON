@@ -786,3 +786,116 @@ def Task4():
 # Task4()
 
 
+#SEMINAR 6. 20.05.2023
+
+def function():
+    print("Hello")
+
+a_function = function # функция - это объект. Функция как объект помещена в переменную. Переменная приняла тип "функция". Функцию можно передавать в другие функции.
+# a_function()
+# print(type(a_function))
+#PVP - функции высшего порядка
+
+
+#ЗАДАЧА 1. Создайте пользовательский аналог метода filter()
+def function_filter(function1, list1):
+    return[x for x in list1 if function1(x)] # при помощи генератора перебираем элементы x в списке List и если выполняется функция function1, то возвращаем этот элемент
+
+def Zadacha1():
+    numbers=[int(input("Введите элементы списка: ")) for _ in range(int(input("Введите количество элементов списка: ")))]
+    print(numbers)
+    number_above5a=function_filter(lambda x: x>5, numbers)
+    number_above5b=list(filter(lambda x: x>5, numbers))
+    print(number_above5a)
+    print(number_above5b)
+
+    def above5(x):
+        return x>5
+    number_above5c=list(filter(above5, numbers))
+    number_above5d=function_filter(above5, numbers)
+    print(number_above5c)
+    print(number_above5d)
+
+#ЗАДАЧА 2. Создать метод, позволяющий замерить время работы других методов
+
+def stopwatch(function):
+    import time # импорт модуля в функцию
+    def decorator():
+        start_time=time.time()
+        function()
+        print(f"Время выполнения функции: {time.time()-start_time}")
+    return decorator
+
+@stopwatch # декоратор
+def math_str():
+    number='132'
+    result=int(number)+int(number+number)+int(number+number+number)
+    print(result)
+    
+@stopwatch # декоратор
+def math_int():
+    number=132
+    result=number + number*1000 + number + number*1000000+number*1000+number
+    print(result)
+    
+# stopwatch(math_str)() # второй вариант вызова (либо поместить в переменную и вызвать ее)
+# stopwatch(math_int)() # второй вариант вызова (либо поместить в переменную и вызвать ее)
+
+def Zadacha2():
+    math_str() # вызывается функция и декоратор
+    math_int() # вызывается функция и декоратор
+
+#ЗАДАЧА 3. Создать декоратор для метода нахождения суммы.
+
+def Zadacha3():
+    def formatting_1(function):
+        def decorator(a,b): # либо args
+            print(f"Cумма чисел {a} + {b} = ",end="") # для двух значений
+            function(a,b) # либо args
+        return decorator
+
+
+    def formatting_2(function):
+        def decorator(*args):       
+            print (f"Cумма чисел ", end='')
+            for arg in args:
+                print (f"{arg} + ", end='') # для нескольких значений
+            print("\b\b= ",end='')
+            function(*args)         
+        return decorator
+            
+    @formatting_1
+    def sum(a,b):
+        print (a+b)
+
+    @formatting_2
+    def sum4(a,b,c,d):
+        print (a+b+c+d)
+
+    sum (50,125)
+    sum4(10,20,30,500)
+
+
+#ЗАДАЧА 4. Создать декоратор с параметрами.
+
+def greetings(hello): # параметр декоратора
+    def our_greetings(function):
+        def decorator():
+            name = function()
+            print(f"{hello}, {name}")
+        return decorator
+    return our_greetings
+
+@greetings("Здравствуй") # параметр декоратора изменяемый
+def get_name():
+    return input("Как тебя зовут? ")
+
+
+#ЗАДАЧА 5. Создать telegram-бот, добавить метод приветствия пользователя
+
+
+import telebot
+
+bot = telebot.TeleBot("5986374571:AAHH-gRgrsbSNig3ZL0GJuzaSloNwF-ol5c")
+
+
