@@ -786,7 +786,7 @@ def Task4():
 # Task4()
 
 
-#SEMINAR 6. 20.05.2023
+#SEMINAR 7. 20.05.2023
 
 def function():
     print("Hello")
@@ -794,8 +794,8 @@ def function():
 a_function = function # функция - это объект. Функция как объект помещена в переменную. Переменная приняла тип "функция". Функцию можно передавать в другие функции.
 # a_function()
 # print(type(a_function))
-#PVP - функции высшего порядка
 
+#PVP - функции высшего порядка
 
 #ЗАДАЧА 1. Создайте пользовательский аналог метода filter()
 def function_filter(function1, list1):
@@ -886,16 +886,32 @@ def greetings(hello): # параметр декоратора
         return decorator
     return our_greetings
 
-@greetings("Здравствуй") # параметр декоратора изменяемый
+def greetings2(greetme):
+    def func(function):
+        def decorator():
+            name = function()
+            print(f"{greetme}, {name}")
+        return decorator    
+    return func
+
+
+@greetings2("Как поживаете") # параметр декоратора изменяемый
 def get_name():
     return input("Как тебя зовут? ")
 
 
-#ЗАДАЧА 5. Создать telegram-бот, добавить метод приветствия пользователя
 
 
-import telebot
+# СЕМИНАР 8. 21.05.2023
 
-bot = telebot.TeleBot("5986374571:AAHH-gRgrsbSNig3ZL0GJuzaSloNwF-ol5c")
+data = open("text.txt", encoding='utf-8') # открытие файла в корневой папке // указываем имя файла и кодировку
+print(data)
+# <_io.TextIOWrapper name='text.txt' mode='r' encoding='cp1251'>
+# mode='r' - режим чтения
+# encoding='cp1251' - стандартная кодировка windows. Нам нужна кодировка utf-8
+print(data.read())
 
 
+
+data.close()
+# после закрытия файла считывать из него данные или записываь в него данные нельзя
