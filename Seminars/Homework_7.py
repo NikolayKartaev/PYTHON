@@ -9,21 +9,20 @@ def Zadacha1():
 
 # Задача 2. Создайте декоратор, повторяющий функцию заданное количество раз.
 def Zadacha2():
-    def times(N):
+    def times(N, greeting1):
         def repeat(function):
             def decorator():
-                for i in range(N):
-                    function()
+                for _ in range(N):
+                    function(greeting1)
             return decorator
         return repeat
 
-
-    @times(int(input("Cколько раз выводить? ")))
-    def greetings():
-        print("Hello",end='\t')
-        
+    @times(int(input("Cколько раз повторять? ")), input("Что повторять: "))
+    def greetings(greet):
+        print(greet,end='\t')
         
     greetings()
+
     
 # Задача 3. Добавьте в telegram-бота игру «Угадай числа». Бот загадывает число от 1 до 1000.
 # Когда игрок угадывает его, бот выводит количество сделанных ходов.
