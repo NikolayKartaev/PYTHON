@@ -1,18 +1,32 @@
 import telebot
+from telebot import types
 import requests
 import time
 from random import randint as RAND
 
-bot = telebot.TeleBot(
-    "5986374571:AAHH-gRgrsbSNig3ZL0GJuzaSloNwF-ol5c", parse_mode=None)
+with open("bot.txt", mode='r', encoding='utf-8') as bottoken:
+    token = bottoken.readline()
+bot = telebot.TeleBot(token)
+
+markup = types.ReplyKeyboardMarkup(row_width=2) # создаем клавиатуру
+
+button_reg = types.KeyboardButton('регистрация') # создаем кнопки
+button_alrm = types.KeyboardButton('оповещение')
+markup.add(button_reg, button_alrm)
+
+
+@bot.message_handler(commands=['start'])
+def send_welcome(our_message):
+	bot.send_message(our_message.from_user.id, "Приветствую! Я бот. Нажмите /help ", reply_markup=markup)
+ 
+@bot.message_handler(commands=['help'])
+def send_welcome(our_message):
+	bot.send_message(our_message.from_user.id, "Список команд еще формируется. Нажми /start ")
 
 def randomnumber():
     number = int(RAND(1, 1000))
     return number
 
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(our_message):
-	bot.reply_to(our_message, "Howdy, how are you doing?")
 
 @bot.message_handler(content_types=['text'])
 def greetings(our_message):
@@ -44,11 +58,6 @@ def greetings(our_message):
         data.close()
         for id in id_list:
             bot.send_message(id, "Совещание начнется через 30 минут!")
-
-
-        
-    # print(f"{our_message}\n")
-    # переводим наше сообщение в текст и помещаем в переменную
     
     
     elif 'привет' in text:
@@ -105,10 +114,10 @@ def game(mess):
                 mess, f'🔺 Укажите число больше, {mess.from_user.first_name}!')
             bot.register_next_step_handler(mess, game)
             is_game = False
-        if int(text1) == number:
             
+        if int(text1) == number:
             msg = bot.reply_to(
-                mess, f'🎉🎉🎉ВЫ ВЫИГРАЛИ, {(mess.from_user.first_name).upper()}!!! ПОЗДРАВЛЯЮ!!!🎉🎉🎉\nВы угадали за {game.count_function} раз!')
+                mess, f'🎉🎉🎉ВЫ ВЫИГРАЛИ, {(mess.from_user.first_name).upper()}!!! ПОЗДРАВЛЯЮ!!!🎉🎉🎉\nВы угадали с {game.count_function} попытки!')
             bot.register_next_step_handler(mess, greetings)
             game.count_function=0
             is_game = False

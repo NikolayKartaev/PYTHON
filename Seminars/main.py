@@ -906,6 +906,7 @@ def get_name():
 
 data = open("text.txt", mode = 'r+', encoding='utf-8') # открытие файла в корневой папке // указываем имя файла, режим и кодировку
 
+
 # <_io.TextIOWrapper name='text.txt' mode='r' encoding='cp1251'> - объект "поток"
 # encoding='cp1251' - стандартная кодировка windows. Нам нужна кодировка utf-8
 
@@ -918,8 +919,13 @@ data = open("text.txt", mode = 'r+', encoding='utf-8') # открытие фай
 # print(data.read()) #считывает файл и выводит строки
 # print(data.readline()) #считывает первую строку (или указанную строку)
 
-data.write("\nВторая строка")
+# data.write("\nВторая строка")
 readdata = data.readlines() #запись считанных данных из файла в переменную. Можно пользоваться после закрытия файла
 
 data.close() # после закрытия файла считывать из него данные или записываь в него данные нельзя
-print(readdata)
+
+print(f"1:{readdata}")
+
+with open("text.txt", mode='r', encoding='utf-8') as data: # включает в себя также close() !!!
+    readdata = data.readlines()
+print(f"2:{readdata}")
