@@ -16,25 +16,42 @@ def send_welcome(our_message):
 
 @bot.message_handler(content_types=['text'])
 def greetings(our_message):
+
     text = (our_message.text).lower()
     
     data = open("logs.txt", mode='a', encoding='utf-8')
-    text_logs=f'{our_message.from_user.first_name} {our_message.from_user.last_name}: {our_message.text}\n'
-    data.write(text_logs)
+    text_logs=f'{our_message.from_user.first_name} {our_message.from_user.last_name} {our_message.from_user.id}: {our_message.text}\n'
+    data.write(text_logs) # записываем логи чата
     data.close()
     
     if text == "регистрация":
-        data = open("registred_users.txt", mode='a', encoding='utf-8')
-        data.write(f"{our_message.from_user.last_name}\n")
+        try:
+            data = open("registred_users.txt", mode='r', encoding='utf-8')
+            id_list=data.readlines()
+            data.close()
+            id_list=list(id[:-1] for id in id_list) #убираем символ \n срезом
+            if str(our_message.from_user.id) in id_list:
+                bot.reply_to(our_message, "Вы уже зарегистрированы!")
+        except:
+            data = open("registred_users.txt", mode='a', encoding='utf-8')
+            data.write(f"{our_message.from_user.id}\n")
+            data.close()
+            bot.reply_to(our_message, "Регистрация прошла успешно!")
+
+    elif text == "оповещение":
+        data = open("registred_users.txt", mode='r', encoding='utf-8')
+        id_list=data.readlines()
         data.close()
-        bot.reply
-        
+        for id in id_list:
+            bot.send_message(id, "Совещание начнется через 30 минут!")
+
+
         
     # print(f"{our_message}\n")
     # переводим наше сообщение в текст и помещаем в переменную
     
     
-    if 'привет' in text:
+    elif 'привет' in text:
         bot.reply_to(
             our_message, f'Привет, {our_message.from_user.first_name}!')
 
@@ -47,16 +64,13 @@ def greetings(our_message):
         bot.reply_to(our_message, request.text)
 
     elif text == "игра":
-
-        bot.reply_to(
-            our_message, f'{our_message.from_user.first_name}, давай поиграем в игру!\nЯ загадал число, угадай его!\n\nВЫ ГОТОВЫ???🤠')
+        global number
+        bot.reply_to(our_message, f'{our_message.from_user.first_name}, давай поиграем в игру!\nЯ загадал число, угадай его!\n\nВЫ ГОТОВЫ???🤠')
     answer = (our_message.text).lower()
     if answer == "да":
-        bot.reply_to(
-            our_message, f'✅Отлично! {our_message.from_user.first_name}, введите ваше число🔢👇 ')
+        number=randomnumber()
+        bot.reply_to(our_message, f'✅Отлично! {our_message.from_user.first_name}, введите ваше число🔢👇 ')
         bot.register_next_step_handler(our_message, game)
-
-
 
 def counter(function1):
     def wrap(*args, **kwargs):
@@ -65,8 +79,6 @@ def counter(function1):
     wrap.count_function = 0
     return wrap
 
-
-number=randomnumber()
 @counter
 @bot.message_handler(content_types=['text'])
 def game(mess):
@@ -98,7 +110,9 @@ def game(mess):
             msg = bot.reply_to(
                 mess, f'🎉🎉🎉ВЫ ВЫИГРАЛИ, {(mess.from_user.first_name).upper()}!!! ПОЗДРАВЛЯЮ!!!🎉🎉🎉\nВы угадали за {game.count_function} раз!')
             bot.register_next_step_handler(mess, greetings)
+            game.count_function=0
             is_game = False
+            
 
 
 
