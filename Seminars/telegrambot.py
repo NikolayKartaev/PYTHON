@@ -19,14 +19,13 @@ def greetings(message):
 
 @bot.message_handler(content_types=['text'])
 def game(message):
-
+    text = (message.text).lower()
     if message =="ИГРА":
         is_game=True
     while is_game:
         number=RAND(1,1000)
         bot.reply_to(message, f'Я загадал число, угадай его, {message.from_user.first_name}!')
 
-        bot.register_next_step_handler(msg, process_name_step)
         
     # elif text == 'погода':
     #     request=requests.get('https://wttr.in/?0T')
