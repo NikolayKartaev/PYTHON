@@ -80,7 +80,7 @@ def greetings(our_message):
         global number
         bot.reply_to(
             our_message, f'✅ {our_message.from_user.first_name}, давай поиграем в игру!\nЯ загадал число, угадай его!\n\nВведите ваше число👇')
-    
+
         bot.register_next_step_handler(our_message, game)
         number = randomnumber()
 
@@ -98,34 +98,29 @@ def counter(function1):
 def game(mess):
 
     print(f"Загаданное число: {number}")  # видим в консоли загаданное число
-    is_game = True
-    while is_game:
 
-        text1 = mess.text
-        text1 = int(text1)
+    text1 = mess.text
+    text1 = int(text1)
 
-        print(text1)  # видим число указанное пользователем
+    print(text1)  # видим число указанное пользователем
 
-        if text1 > number:
+    if text1 > number:
 
-            bot.reply_to(
-                mess, f'🔻 Укажите число меньше, {mess.from_user.first_name}!')
-            bot.register_next_step_handler(mess, game)
-            is_game = False
+        bot.reply_to(
+            mess, f'🔻 Укажите число меньше, {mess.from_user.first_name}!')
+        bot.register_next_step_handler(mess, game)
 
-        if text1 < number:
+    if text1 < number:
 
-            bot.reply_to(
-                mess, f'🔺 Укажите число больше, {mess.from_user.first_name}!')
-            bot.register_next_step_handler(mess, game)
-            is_game = False
+        bot.reply_to(
+            mess, f'🔺 Укажите число больше, {mess.from_user.first_name}!')
+        bot.register_next_step_handler(mess, game)
 
-        if int(text1) == number:
-            msg = bot.reply_to(
-                mess, f'🎉🎉🎉ВЫ ВЫИГРАЛИ, {(mess.from_user.first_name).upper()}!!! ПОЗДРАВЛЯЮ!!!🎉🎉🎉\nВы угадали с {game.count_function} попытки!')
-            bot.register_next_step_handler(mess, greetings)
-            game.count_function = 0
-            is_game = False
+    if int(text1) == number:
+        msg = bot.reply_to(
+            mess, f'🎉🎉🎉ВЫ ВЫИГРАЛИ, {(mess.from_user.first_name).upper()}!!! ПОЗДРАВЛЯЮ!!!🎉🎉🎉\nВы угадали с {game.count_function} попытки!')
+        bot.register_next_step_handler(mess, greetings)
+        game.count_function = 0
 
 
 bot.polling()
