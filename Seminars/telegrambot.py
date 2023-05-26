@@ -22,7 +22,7 @@ def send_welcome(our_message):
 
 
 @bot.message_handler(commands=['help'])
-def send_welcome(our_message):
+def list_commands(our_message):
     bot.send_message(our_message.from_user.id,
                      "Список команд еще формируется. Нажми /start ")
 
