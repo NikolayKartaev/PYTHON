@@ -903,29 +903,34 @@ def get_name():
 
 
 # СЕМИНАР 8. 21.05.2023
+def files():
+    data = open("text.txt", mode = 'r+', encoding='utf-8') # открытие файла в корневой папке // указываем имя файла, режим и кодировку
 
-data = open("text.txt", mode = 'r+', encoding='utf-8') # открытие файла в корневой папке // указываем имя файла, режим и кодировку
 
+    # <_io.TextIOWrapper name='text.txt' mode='r' encoding='cp1251'> - объект "поток"
+    # encoding='cp1251' - стандартная кодировка windows. Нам нужна кодировка utf-8
 
-# <_io.TextIOWrapper name='text.txt' mode='r' encoding='cp1251'> - объект "поток"
-# encoding='cp1251' - стандартная кодировка windows. Нам нужна кодировка utf-8
+    # mode='r' - режим чтения
+    # mode='w' - режим записи
+    # mode='r+' - режим чтения плюс запись
+    # mode='w+' - режим записи плюс чтение
 
-# mode='r' - режим чтения
-# mode='w' - режим записи
-# mode='r+' - режим чтения плюс запись
-# mode='w+' - режим записи плюс чтение
+    # print(data.readlines()) #считывает файл и выводит в строку как список строк
+    # print(data.read()) #считывает файл и выводит строки
+    # print(data.readline()) #считывает первую строку (или указанную строку)
 
-# print(data.readlines()) #считывает файл и выводит в строку как список строк
-# print(data.read()) #считывает файл и выводит строки
-# print(data.readline()) #считывает первую строку (или указанную строку)
+    # data.write("\nВторая строка")
+    readdata = data.readlines() #запись считанных данных из файла в переменную. Можно пользоваться после закрытия файла
 
-# data.write("\nВторая строка")
-readdata = data.readlines() #запись считанных данных из файла в переменную. Можно пользоваться после закрытия файла
+    data.close() # после закрытия файла считывать из него данные или записываь в него данные нельзя
 
-data.close() # после закрытия файла считывать из него данные или записываь в него данные нельзя
+    print(f"1:{readdata}")
 
-print(f"1:{readdata}")
+    with open("text.txt", mode='r', encoding='utf-8') as data: # включает в себя также close() !!!
+        readdata = data.readlines()
+    print(f"2:{readdata}")
 
-with open("text.txt", mode='r', encoding='utf-8') as data: # включает в себя также close() !!!
-    readdata = data.readlines()
-print(f"2:{readdata}")
+# СЕМИНАР 9 27.05.2023
+
+import numpy as np
+
