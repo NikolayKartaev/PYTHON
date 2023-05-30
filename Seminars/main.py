@@ -934,3 +934,96 @@ def files():
 
 import numpy as np
 
+def ZadachaS9_1():
+    first = [56,37,48,45,46,43,41,45,47,48,57,63]
+    second = [66,46,46,54,57,51,52,54,57,54,68,72]
+    third = [89,67,65,77,79,68,74,75,77,77,91,96]
+
+    matrix = [first,second,third]
+    result = np.corrcoef(matrix)
+
+    print(result)
+
+
+
+def ZadachaS9_2():
+    size= 10
+    numbers = np.random.randint(1,50,size) # создает массив из случайных элементов размера size
+    print(numbers)
+    # print(type(numbers)) # массив
+    # numbers.sort()                       # сортировка массива (от numpy)
+    # print(numbers)
+
+    # mean = sum(numbers)/size
+    # print(mean)
+
+    # mean = np.median(numbers)            # среднее значение
+    # print(mean)
+
+    num = int(input("Введите число: "))
+
+    distance = [np.abs(x - num) for x in numbers] # distance = list(map(lambda x: np.abs(x - num ), numbers))
+    print(f"Расстояния {distance}")
+
+    min_distance = np.min(distance)        # минимальное значение
+    print(f"Минимальное расстояние {min_distance}")
+
+    index= distance.index(min_distance)
+    print(f"Индекс Минимального расстояния {distance.index(min_distance)}")
+
+    print(f"Ответ: {numbers[index]}")
+
+
+
+
+def ZadachaS9_3():
+
+    # size = tuple(int(x) for x in (input("Введите размеры матрицы через пробел: ")).split()) #повторение. Создание списка с помощью генератора
+    size = tuple(map(lambda x: int(x),input("Введите размеры матрицы через пробел: ").split())) #повторение. Создание списка с помощью лямбда-функций
+
+    matrix = np.random.randint(1,10, size) # создание матрицы размера size (size - кортеж из 2 чисел)
+    print(f"{matrix}\t")
+
+    # list1=list()
+    # list2=list()
+    # count=dict()
+
+    # ВАРИАНТ 1 - решение через 2 списка, циклы
+    # for array in matrix:
+    #     for el in array:
+    #         list2.append(el)
+    #         if el not in list1:
+    #             list1.append(el)
+    # count=list(map(lambda x: list2.count(x), list1))
+    # result = count.index(np.max(count))
+   
+    # print(list1)
+    # print(count)
+    # print(result)
+    # print(f"Больше всех повторяется число: {list1[result]} - {count[result]} раз")
+
+    # ВАРИАНТ 2 - решение через встроенный функционал
+
+    uniq_list, uniq_counts = np.unique(matrix, return_counts=True)  # возвращает кортеж из уникальных элементов и количество повторений элементов 
+    print(f'Уникальные элементы:   {uniq_list}')
+    print(f"Количество повторений: {uniq_counts}")
+    max_index=np.argmax(uniq_counts)                                # возвращает индекс максимального элемента
+    print(f"Элемент {uniq_list[max_index]} встречает {uniq_counts[max_index]} раз.")
+
+
+
+def ZadachaS9_4():
+   matrix = np.random.randint(0,2, tuple(map(lambda x: int(x),input("Введите размеры матрицы через пробел: ").split())))
+   print(matrix)
+#    result = np.any(matrix == 5) # проверяет есть ли в массиве элементы равные 5
+   result = matrix.any(axis=0) #параметр axis - оси, где 1 - строки, 0 - столбцы
+   print(result)
+   result = ~result # ~ применяет операцию not ко всем элементам
+   print(result)
+
+   if True in result:
+       print("В матрице есть столбец(столбцы) из нулей.")
+  
+
+## diagmain
+

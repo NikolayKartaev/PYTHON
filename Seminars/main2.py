@@ -211,15 +211,68 @@ def ZadachaS3_3():
 def ZadachaS3_4():
     # list1=[int(input("Введите число: ")) for x in range(int(input("Введите количество элеметнов: ")))]
     list1=[int(x) for x in input("Введите числа через пробел: ").split()]
-    count=0
-    for i in range (1,len(list1)):
-        if list1[i]>list1[i-1]:
-            count+=1
-    print(count)
+    # count=0
+    # for i in range (1,len(list1)):
+    #     if list1[i]>list1[i-1]:
+    #         count+=1
+    # print(count)
     
     # вариант 2
-    # count2 = sum([int(list1[i]>list1[i-1]) for i in range(1,len(list1))])
-    # print(count2)
+    count2 = sum([int(list1[i]>list1[i-1]) for i in range(1,len(list1))])
+    print(count2)
             
-      
-ZadachaS3_4()
+
+
+
+# СЕМИНАР 4. Аналитик. 29.05.2023
+
+def ZadachaS4_1():
+    string=input("Введите слово: ").split()
+  
+    counter=dict()
+           
+    for char in string:
+        if char in counter:
+            print(f'{char}_{counter[char]}', end=' ')
+            counter[char] += 1
+    else: # ключа i нет внутри словаря result
+        print(char, end=' ')
+        counter[char] = 1
+
+    #вариант 1
+    
+# for i in word:
+#     if i in result:
+#         print(f'{i}_{result[i]}', end=' ')
+#         result[i] += 1
+#     else: # ключа i нет внутри словаря result
+#         print(i, end=' ')
+#         result[i] = 1
+
+#         #вариант 2
+# for i in word:
+#     if i in result:
+#         print(f'{i}_{result[i]}', end=' ')
+#     else: # ключа i нет внутри словаря result
+#         print(i, end=' ')
+#     result[i] = result.get(i, 0) + 1
+
+
+
+def ZadachaS4_2():
+    text = "She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells"
+    print(len(set(((text).lower().split()))))
+
+
+
+def ZadachaS4_3():
+
+    n = int(input())
+    max_number = n
+    while n != 0:
+        n = int(input())
+        if n > max_number:
+            max_number=n
+    print(max_number)
+
+ZadachaS4_3()
