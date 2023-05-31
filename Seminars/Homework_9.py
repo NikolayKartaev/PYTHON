@@ -41,6 +41,14 @@ def Task3():
 
     print("Индекс максимального элемента: {}\nИндекс минимального элемента: {}".format(max_index,min_index))
     
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            if matrix[i][j]==np.max(matrix):
+                print(f"Индекс максимального элемента: ({i},{j})")
+            if matrix[i][j]==np.min(matrix):
+                print(f"Индекс минимального элемента: ({i},{j})")
+            
+    
     print(np.diagonal(matrix))
     
 Task3()
