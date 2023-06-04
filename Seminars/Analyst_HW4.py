@@ -12,7 +12,7 @@ def Task1():
     newlist.sort()
     print(newlist)
     
-
+import random
 # Задача 24: В фермерском хозяйстве в Карелии выращивают чернику.
 # Она растёт на круглой грядке, причём кусты высажены только по окружности.
 # Таким образом, у каждого куста есть ровно два соседних. Всего на грядке растёт N кустов.
@@ -25,4 +25,24 @@ def Task1():
 # находясь перед некоторым кустом заданной во входном файле грядки.
 
 def Task2():
+    N = random.randint(3,10)
+    harvest = [random.randint(1,15) for _ in range (N)]
     
+    max = -1
+    
+    for i in range(len(harvest)):
+        if i in range (1, len(harvest)-1):
+            if harvest[i]+harvest[i-1]+harvest[i+1] > max:
+                max = harvest[i]+harvest[i-1]+harvest[i+1]
+        elif i == (len(harvest)-1):
+            if harvest[i]+harvest[i-1]+harvest[0] > max:
+                max = harvest[i]+harvest[i-1]+harvest[0]
+        else:
+            if harvest[i]+harvest[len(harvest)-1]+harvest[i+1] > max:
+                max = harvest[i]+harvest[i-1]+harvest[i+1]
+            
+    print(max)
+    
+    
+    
+Task2()

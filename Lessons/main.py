@@ -3,6 +3,8 @@
 # c = 20.5
 # print(f"{a} + {b} + {c} = {a+b+c}")
 # print("{} + {} + {} = {}".format(a, b, c, a+b+c))
+# print("{3} = {0} + {1} + {2}".format(a, b, c, a+b+c))
+
 
 # d = int(input())
 # f = int(input("Введите число: "))
@@ -117,3 +119,4 @@ while flag:
 # a = 5.542434345
 # b = 4.55322245
 # print(round(a*b, 4))
+
