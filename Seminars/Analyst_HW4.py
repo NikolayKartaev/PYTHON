@@ -28,20 +28,31 @@ def Task2():
     N = random.randint(3,10)
     harvest = [random.randint(1,15) for _ in range (N)]
     
-    max = -1
+    maximum = -1
+    maxharv=list()
     
     for i in range(len(harvest)):
         if i in range (1, len(harvest)-1):
-            if harvest[i]+harvest[i-1]+harvest[i+1] > max:
-                max = harvest[i]+harvest[i-1]+harvest[i+1]
+            if harvest[i]+harvest[i-1]+harvest[i+1] > maximum:
+                maximum = harvest[i]+harvest[i-1]+harvest[i+1]
         elif i == (len(harvest)-1):
-            if harvest[i]+harvest[i-1]+harvest[0] > max:
-                max = harvest[i]+harvest[i-1]+harvest[0]
+            if harvest[i]+harvest[i-1]+harvest[0] > maximum:
+                maximum = harvest[i]+harvest[i-1]+harvest[0]
         else:
-            if harvest[i]+harvest[len(harvest)-1]+harvest[i+1] > max:
-                max = harvest[i]+harvest[i-1]+harvest[i+1]
+            if harvest[i]+harvest[len(harvest)-1]+harvest[i+1] > maximum:
+                maximum = harvest[i]+harvest[i-1]+harvest[i+1]
+        
+    for i in range(len(harvest)):
+        if i in range (1, len(harvest)-1):
+            maxharv.append(harvest[i]+harvest[i-1]+harvest[i+1])
+        elif i == (len(harvest)-1):
+            maxharv.append(harvest[i]+harvest[i-1]+harvest[0])
+        else:
+            maxharv.append(harvest[i]+harvest[len(harvest)-1]+harvest[i+1])
             
-    print(max)
+        
+            
+    print(maximum, max(maxharv))
     
     
     
