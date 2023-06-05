@@ -1,4 +1,7 @@
 import math
+from random import randint
+
+
 # СЕМИНАР 1. Аналитик. 18.05.2023
 def Zadacha1():
     n=700
@@ -275,4 +278,129 @@ def ZadachaS4_3():
             max_number=n
     print(max_number)
 
-ZadachaS4_3()
+
+# СЕМИНАР 5. 01.06.2023
+
+def ZadachaS5_1():
+    def Fibo(a):
+        if a in range(0,2): return 0
+        elif a == 2: return 1
+        else: return Fibo(a-1)+ Fibo(a-2)
+    
+    n=int(input())
+    print([Fibo(i) for i in range(1,n+1)])
+    
+    
+    
+def ZadachaS5_2():
+    marks = [randint(1,5) for x in range(int(input()))]
+    print(marks)
+    maxi=max(marks)
+    mini = min(marks)
+    for i in range(len(marks)):
+        if marks[i] == maxi:
+            marks[i] = mini
+            
+    print(marks)
+    
+    
+def ZadachaS5_3():
+    N=int(input())
+    count=0
+    for i in range(2,N//2+1):
+        if N%i==0:
+            count+=1
+    if count>0:
+        print(f"Число {N} не является простым")
+    else: print(f"Число {N} простое")
+    
+    
+    
+def ZadachaS5_4():
+    def reverse(n):
+        if n==0: return ""
+        k = (input())
+        return reverse(n-1) + f"{k}"
+    
+    n = int(input())
+    print(reverse(n))
+    
+
+
+# СЕМИНАР 6. 05.06.2023
+
+def ZadachaS6_1():
+    list1 = [randint(1,25) for _ in range(int(input("Введите количество элементов первого списка: ")))]  
+    list2 = [randint(1,25) for _ in range(int(input("Введите количество элементов второго списка: ")))]
+    
+    for i in list1:
+        if i not in list2:
+            print(f"{i}",end=',')
+            
+    print([i for i in list1 if i not in list2]) ###### ПОВТОРЕНИЕ
+
+# Дан массив, состоящий из целых чисел. Напишите программу, которая в данном массиве выведет количество элементов, 
+# у которых два соседних и, при этом, оба соседних элемента меньше данного. 
+# Сначала вводится число N — количество элементов в массиве  Далее записаны N чисел — элементы массива. 
+# Массив состоит из целых чисел. 
+# Ввод: 			Ввод:
+# 5				5
+# 1 2 3 4 5			1 5 1 5 1
+# Вывод:			Вывод:
+# 0				2
+
+def ZadachaS6_2():
+    list1=[randint(1,26) for _ in range(int(input("Введите количество элементов: ")))]
+    count=0
+    # for i in range(1,len(list1)-1):
+    #     if list1[i]>list1[i-1] and list1[i]>list1[i+1]:
+    #         count+=1
+    
+    count = sum([int(list1[i]>list1[i-1] and list1[i]>list1[i+1]) for i in range(1,len(list1)-1)])
+    print(list1)
+    print(count)
+        
+        
+# Дан список чисел. Посчитайте, сколько в нем пар элементов, равных друг другу. 
+# Считается, что любые два элемента, равные друг другу образуют одну пару, которую необходимо посчитать. 
+# Вводится список чисел. Все числа списка находятся на разных строках.
+
+# Ввод:			Вывод:
+# 1 2 3 2 3			2
+
+def ZadachaS6_3():
+    list1=[i for i in input("Введите числа через пробел: ").split()]
+    dict1=dict()
+    
+    for i in list1:
+        dict1[i] = list1.count(i)
+        
+    print(dict1)
+    
+    print(sum([i//2 for i in dict1.values()]))
+
+# Два различных натуральных числа n и m называются дружественными, если сумма делителей числа n (включая 1, но исключая само n) 
+# равна числу m и наоборот. Например, 220 и 284 – дружественные числа. По данному числу k выведите все пары дружественных чисел, 
+# каждое из которых не превосходит k. Программа получает на вход одно натуральное число k, не превосходящее 105. 
+# Программа должна вывести  все пары дружественных чисел, каждое из которых не превосходит k. Пары необходимо выводить по одной 
+# в # строке, разделяя пробелами. Каждая пара должна быть выведена только один раз (перестановка чисел новую пару не дает).
+# Ввод:			Вывод:
+# 300			220 284
+
+
+def ZadachaS6_4():
+    n = int(input())
+    list_1 = list()
+    for i in range(n):
+        summa = 0
+        for j in range(1, i // 2 + 1):
+            if i % j == 0:
+                summa += j
+        list_1.append((i, summa))
+    print(list_1)
+    for i in range(len(list_1)):
+        for j in range(i, len(list_1)):
+            if i != j and list_1[i][0] == list_1[j][1] and list_1[i][1] == list_1[j][0]:
+                print(*list_1[i])
+
+ZadachaS6_4()
