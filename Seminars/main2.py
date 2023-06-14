@@ -403,4 +403,62 @@ def ZadachaS6_4():
             if i != j and list_1[i][0] == list_1[j][1] and list_1[i][1] == list_1[j][0]:
                 print(*list_1[i])
 
-ZadachaS6_4()
+def TaskS7_0():
+    
+    def transformation(x):
+        return x
+    
+    transformation = lambda x: x
+    
+    a = [1,2,3]
+    b = list(map(transformation,a))
+    
+    if (a==b): print("OK")
+    else: print("fuck")
+    
+
+    
+
+def TaskS7_1():
+    orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
+    
+    # def find_farthest_orbit(arr):
+        
+    #     newarr = list(filter(lambda x: x[0]!=x[1],arr))
+    #     s = list(map(lambda x: x[0]*x[1],newarr))
+    #     result=filter(lambda x: x[0]*x[1]==max(s),newarr)
+        
+    #     return result
+    
+    # print(list(find_farthest_orbit(orbits)))
+
+    def Func2(orbits):
+        return max(orbits, key=lambda x: x[0] * x[1] if x[0] != x[1] else -1)
+    
+    print(*Func2(orbits))
+    
+TaskS7_1()
+
+# Напишите функцию same_by(characteristic, objects), 
+# которая проверяет, все ли объекты имеют одинаковое значение некоторой характеристики, 
+# и возвращают True, если это так. Если значение характеристики для разных объектов отличается - 
+# то False. Для пустого набора объектов, функция должна возвращать True. 
+# Аргумент characteristic - это функция, которая принимает объект и вычисляет его характеристику.
+# Ввод:							Вывод:
+# values = [0, 2, 10, 6]				same
+# if same_by(lambda x: x % 2, values):
+# 	print(‘ same’)
+# else:
+# 	print(‘different’)
+
+def TaskS7_2():
+    def same_by(characteristic, objects):
+        if map(lambda x: x == True, characteristic ) == True: 
+            return True
+
+    values = [0, 2, 10, 6]				
+    if same_by(lambda x: x % 2, values):
+        print("same")
+    else:
+        print("different")
+ 
