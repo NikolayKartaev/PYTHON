@@ -462,3 +462,7 @@ def TaskS7_2():
     else:
         print("different")
  
+ 
+def taskS8_1():
+     with open ("phones.txt", mode = "w", encoding='utf-8') as data:
+        data.write("Ivan;Ivanov;+79991112233\n")
