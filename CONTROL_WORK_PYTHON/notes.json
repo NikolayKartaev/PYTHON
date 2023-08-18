@@ -1,0 +1,44 @@
+[
+    {
+        "note_id": 1,
+        "title": "NEW NOTE",
+        "message": "This is my new note",
+        "created_at": "2023-08-17 21:50:32",
+        "updated_at": "2023-08-17 21:50:32"
+    },
+    {
+        "note_id": 4,
+        "title": "FOURTH NOTE",
+        "message": "This is my updated note",
+        "created_at": "2023-08-18 22:03:02",
+        "updated_at": "2023-08-18 22:05:12"
+    },
+    {
+        "note_id": 3,
+        "title": "THIRD NOTE",
+        "message": "This is my updated note",
+        "created_at": "2023-08-18 22:03:27",
+        "updated_at": "2023-08-18 22:04:20"
+    },
+    {
+        "note_id": 5,
+        "title": "FIFTH NOTE",
+        "message": "This is my updated note",
+        "created_at": "2023-08-18 22:03:29",
+        "updated_at": "2023-08-18 22:05:29"
+    },
+    {
+        "note_id": 6,
+        "title": "SIXTH NOTE",
+        "message": "This is my updated note",
+        "created_at": "2023-08-18 22:06:02",
+        "updated_at": "2023-08-18 22:06:25"
+    },
+    {
+        "note_id": 7,
+        "title": "Making Python Control Work",
+        "message": "It was a hard work and took me a lot of time",
+        "created_at": "2023-08-18 22:10:37",
+        "updated_at": "2023-08-18 22:10:37"
+    }
+]
